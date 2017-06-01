@@ -38,7 +38,7 @@ include_directories(${REPOSITORY_ROOT})
 set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14")
 
 ## Add folders
-add_subdirectory(need-hug-native)
+add_subdirectory(need-hug)
 
 ## Test settings
 if (BUILD_TEST)
@@ -50,6 +50,6 @@ if (BUILD_TEST)
 	hunter_add_package(GTest)
 	find_package(GTest CONFIG REQUIRED)
 
-	add_subdirectory(need-hug-native-test)
+	add_subdirectory(need-hug-test)
 endif (BUILD_TEST)
 	

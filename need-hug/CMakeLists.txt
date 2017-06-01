@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
 
 # Root project settings
-set(MODULE_NAME need-hug-native)
+set(MODULE_NAME need-hug)
 project(${MODULE_NAME})
 
 # Set the files used in the target
@@ -12,7 +12,7 @@ set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/hpp/)
 set(LIBRARIES "")
 
 # Add the target
-add_library(${MODULE_NAME} SHARED ${HEADERS} ${SOURCES})
+add_executable(${MODULE_NAME} ${HEADERS} ${SOURCES})
 target_include_directories(${MODULE_NAME} PUBLIC "${INCLUDE_DIRECTORIES}")
 target_link_libraries(${MODULE_NAME} ${LIBRARIES})
 
