@@ -24,7 +24,7 @@ if (WIN32)
 	include("CMake/create_source_group.cmake")
 endif (WIN32)
 
-## Find external libraries and modules
+## Find external cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_ROOT}/Modules/")
 
@@ -39,6 +39,7 @@ set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14")
 
 ## Add folders
 add_subdirectory(need-hug)
+add_subdirectory(need-hug-lib)
 
 ## Test settings
 if (BUILD_TEST)
@@ -50,6 +51,6 @@ if (BUILD_TEST)
 	hunter_add_package(GTest)
 	find_package(GTest CONFIG REQUIRED)
 
-	add_subdirectory(need-hug-test)
+	add_subdirectory(need-hug-lib-test)
 endif (BUILD_TEST)
 	

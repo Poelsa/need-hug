@@ -1,20 +1,22 @@
 cmake_minimum_required(VERSION 3.7)
 
-# Root project settings
-set(MODULE_NAME need-hug)
+# Set names
+set(NAME_OF_TEST_MODULE need-hug-lib)
+set(MODULE_NAME ${NAME_OF_TEST_MODULE}${TEST_SUFFIX})
 project(${MODULE_NAME})
 
-# Set the files used in the target
+# Find files
 file(GLOB_RECURSE HEADERS Headers/ *.hpp)
 file(GLOB_RECURSE SOURCES Source/ *.cpp)
 
+# Set include directories and libraries
 set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/hpp/)
-set(LIBRARIES need-hug-lib)
+set(LIBRARIES ${NAME_OF_TEST_MODULE} GTest::main)
 
 # Add the target
 add_executable(${MODULE_NAME} ${HEADERS} ${SOURCES})
-target_include_directories(${MODULE_NAME} PUBLIC "${INCLUDE_DIRECTORIES}")
 target_link_libraries(${MODULE_NAME} ${LIBRARIES})
+target_include_directories(${MODULE_NAME} PUBLIC ${INCLUDE_DIRECTORIES})
 
 # Set compiler options for target
 set(DEBUG_OPTIONS "")
