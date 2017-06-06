@@ -13,14 +13,15 @@ namespace NeedHug
 		std::cout << "GAME STOPPED! WHOO!" << std::endl;
 	}
 
-	int NeedHugContext::Start()
+	ReturnCode NeedHugContext::Start()
 	{
-		int returnCode = 1;
-		while(returnCode == 1)
+		ReturnCode returnCode = ReturnCode::Stop;
+		while(true)
 		{
 			// Do game
-			returnCode = 0;
+			break; // Temporary test code
 		}
+		returnCode = ReturnCode::Stop; // Temporary test code 
 		return returnCode;
 	}
 }

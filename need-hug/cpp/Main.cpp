@@ -1,41 +1,34 @@
 #include <need-hug-lib/hpp/NeedHugContext.hpp>
+#include <need-hug-lib/hpp/ReturnCode/ReturnCodeConverter.hpp>
 #include <iostream>
-
-// TODO Move this into shared file and convert into enum class.
-const int CLEAN_SHUTDOWN = 0;
-const int DEFAULT_STOP_SIGNAL = 1;
-const int UNEXPECTED_CRASH_SIGNAL = 2;
-
-int RunGame()
-{
-	int returnCode = DEFAULT_STOP_SIGNAL;
-	using namespace NeedHug;
-	NeedHugContext needHugContext;
-	try
-	{
-		returnCode = needHugContext.Start();
-	}
-	catch(...)
-	{
-		std::cout << "Game crashed unexpectedly" << std::endl;
-		returnCode = UNEXPECTED_CRASH_SIGNAL;
-	}
-	return returnCode;
-}
 
 int main(int argc, char** argv)
 {
-	int returnCode = DEFAULT_STOP_SIGNAL;
-	while(returnCode == DEFAULT_STOP_SIGNAL)
+	using namespace NeedHug;
+	ReturnCode returnCode = ReturnCode::Continue;
+	while(returnCode == NeedHug::ReturnCode::Continue)
 	{
-		returnCode = RunGame();
+		{
+			NeedHugContext needHugContext;
+			try
+			{
+				returnCode = needHugContext.Start();
+			}
+			catch(...)
+			{
+				std::cout << "Game crashed unexpectedly" << std::endl;
+			}
+		}
 		// When the code reaches here, nothing should be allocated anylonger in order to avoid memoryleaks.
 	}
 
-	if(returnCode != CLEAN_SHUTDOWN)
+	std::cout << "The game returned the following stopCode '" << ReturnCodeConverter().Convert(returnCode).info << "'." << std::endl;
+	int returnCodeValue = 1;
+
+	if(returnCode == ReturnCode::Stop)
 	{
-		std::cout << "Stopped game with returnCode: " << returnCode << std::endl;
+		returnCodeValue = 0;
 	}
 
-	return returnCode;
+	return returnCodeValue;
 }
