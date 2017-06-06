@@ -18,9 +18,7 @@ namespace NeedHug
 		{
 			return ReturnCodeInfo("Stop");
 		}
-		{
-			const std::string message = std::string("Given returnCode does not exist: ").append(std::to_string(static_cast<int>(p_returnCode)));
-			throw std::runtime_error(message);
-		}
+		const std::string message = std::string("Given returnCode does not exist: ").append(std::to_string(static_cast<int>(p_returnCode)));
+		throw std::runtime_error(message);
 	}
 }
