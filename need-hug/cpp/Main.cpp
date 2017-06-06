@@ -1,4 +1,4 @@
-#include <need-hug-lib/hpp/NeedHugContext.hpp>
+#include <need-hug-lib/hpp/NeedHugGame.hpp>
 #include <need-hug-lib/hpp/ReturnCode/ReturnCodeConverter.hpp>
 
 #include <iostream>
@@ -10,10 +10,10 @@ int main(int argc, char** argv)
 	while(returnCode == NeedHug::ReturnCode::Continue)
 	{
 		// When the code reaches here, nothing should be allocated any longer in order to avoid memoryleaks.
-		NeedHugContext needHugContext;
+		NeedHugGame needHugGame;
 		try
 		{
-			returnCode = needHugContext.Start();
+			returnCode = needHugGame.Start();
 		}
 		catch(...)
 		{

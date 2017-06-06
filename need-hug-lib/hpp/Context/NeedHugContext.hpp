@@ -10,9 +10,6 @@ namespace NeedHug
 public:
 	NeedHugContext();
 	virtual ~NeedHugContext();
-
-	ReturnCode Start();
-private:
 	};
 }
 
