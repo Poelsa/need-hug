@@ -1,4 +1,4 @@
-#include <ECS/Entity.hpp>
+#include <ecs/Entity.hpp>
 
 namespace NeedHug
 {

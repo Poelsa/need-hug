@@ -7,6 +7,9 @@ namespace NeedHug
     {
     public:
         virtual ~Component() = 0;
+    
+    private:
+        static int typeId;
     };
 }
 

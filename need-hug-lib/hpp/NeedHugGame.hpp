@@ -1,5 +1,5 @@
-#ifndef NEEDHUGCONTEXT_HPP
-#define NEEDHUGCONTEXT_HPP
+#ifndef NEEDHUGGAME_HPP
+#define NEEDHUGGAME_HPP
 
 #include <need-hug-lib/hpp/ReturnCode/ReturnCode.hpp>
 

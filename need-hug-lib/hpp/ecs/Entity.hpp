@@ -1,13 +1,10 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-// #include <need-hug-lib/hpp/ECS/Transform.hpp>
+#include <need-hug-lib/hpp/components/Transform.hpp>
 
 namespace NeedHug
 {
-	class Component;
-	class Transform;
-
 	class Entity
 	{
 	public:
@@ -21,10 +18,10 @@ namespace NeedHug
 			return null;
 		}*/
 
-	//	Transform& GetTransform() const { return transform; }
+		Transform& GetTransform() { return transform; }
 
 	private:
-		// Transform transform;
+		Transform transform;
 	};
 }
 
