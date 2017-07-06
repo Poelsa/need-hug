@@ -1,15 +1,16 @@
 #ifndef COMPONENT_HPP
 #define COMPONENT_HPP
 
+#include <need-hug-lib/hpp/components/BaseComponent.hpp>
+
 namespace NeedHug
 {
-    class Component
+    template <typename T>
+    class Component : public BaseComponent
     {
     public:
-        virtual ~Component() = 0;
-    
-    private:
-        static int typeId;
+        virtual ~Component() {}
+        static const int typeId = __COUNTER__;
     };
 }
 

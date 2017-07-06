@@ -5,7 +5,7 @@
 
 namespace NeedHug
 {
-    class Transform : Component
+    class Transform
     {
     public:
         Transform();

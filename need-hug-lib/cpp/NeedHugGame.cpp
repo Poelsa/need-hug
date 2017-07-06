@@ -1,5 +1,7 @@
 #include <NeedHugGame.hpp>
 #include <Context/NeedHugContext.hpp>
+#include <iostream>
+
 
 namespace NeedHug
 {
@@ -19,8 +21,14 @@ namespace NeedHug
 		while(true)
 		{
 			// Do game
+			
 			break; // Temporary test code
 		}
+
+		Component<Transform>* a = CreateComponent<Transform>();
+
+		std::vector<Component<Transform>*> hej = GetComponents<Transform>();
+
 		returnCode = ReturnCode::Stop; // Temporary test code 
 		return returnCode;
 	}

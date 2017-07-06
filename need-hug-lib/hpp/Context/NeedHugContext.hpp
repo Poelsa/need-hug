@@ -1,7 +1,8 @@
 #ifndef NEEDHUGCONTEXT_HPP
 #define NEEDHUGCONTEXT_HPP
 
-//#include <need-hug-lib/hpp/ReturnCode/ReturnCode.hpp>
+#include <vector>
+#include <ecs/Entity.hpp>
 
 namespace NeedHug
 {
@@ -20,11 +21,18 @@ namespace NeedHug
 		{
 			return *context;
 		}
+
+		// --- Game stuff ---
+		
+		
 	private:
 		NeedHugContext() {}
 		virtual ~NeedHugContext();
 
 		static NeedHugContext* context;
+
+		// --- Game engine stuff ---
+		std::vector<Entity> entities;
 	};
 }
 
