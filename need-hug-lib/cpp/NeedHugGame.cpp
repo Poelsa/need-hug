@@ -1,6 +1,6 @@
 #include <NeedHugGame.hpp>
-#include <Context/NeedHugContext.hpp>
 #include <iostream>
+#include <Context/NeedHugContext.hpp>
 
 
 namespace NeedHug
@@ -25,9 +25,9 @@ namespace NeedHug
 			break; // Temporary test code
 		}
 
-		Component<Transform>* a = CreateComponent<Transform>();
+		Component<Transform>* transformComp = NeedHugContext::GetContext().CreateComponent<Transform>();
 
-		std::vector<Component<Transform>*> hej = GetComponents<Transform>();
+		std::vector<Component<Transform>*> allTransformComponents = NeedHugContext::GetContext().GetComponents<Transform>();
 
 		returnCode = ReturnCode::Stop; // Temporary test code 
 		return returnCode;
