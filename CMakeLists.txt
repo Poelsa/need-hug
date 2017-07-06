@@ -18,6 +18,12 @@ endif (NH_BUILD_TEST)
 project(need-hug)
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
+## Define output folder
+set(OUTPUT_FOLDER ${CMAKE_BINARY_DIR}/build)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_FOLDER})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_FOLDER})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_FOLDER})
+
 ## Include CMake helpers
 # Source group helper
 if (WIN32)
@@ -38,8 +44,8 @@ set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14") # Dont put on global flags (?)
 
 ## SFML paths and libs
 set(SFML_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/SFML/include)
-set(SFML_LIBRARIES_DEBUG sfml-graphics-d.lib sfml-network-d.lib sfml-system-d.lib sfml-window-d.lib)	
-set(SFML_LIBRARIES_RELEASE sfml-graphics.lib sfml-network.lib sfml-system.lib sfml-window.lib)	
+set(SFML_LIBRARIES_DEBUG ${OUTPUT_FOLDER}/sfml-graphics-d.lib ${OUTPUT_FOLDER}/sfml-system-d.lib ${OUTPUT_FOLDER}/sfml-window-d.lib)	
+set(SFML_LIBRARIES_RELEASE ${OUTPUT_FOLDER}/sfml-graphics.lib ${OUTPUT_FOLDER}/sfml-system.lib ${OUTPUT_FOLDER}/sfml-window.lib)	
 
 option(SFML_BUILD_NETWORK OFF)
 option(SFML_BUILD_AUDIO OFF)
