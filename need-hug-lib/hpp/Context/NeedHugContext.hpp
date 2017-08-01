@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <memory>
 #include <ecs/Entity.hpp>
 #include <need-hug-lib/hpp/components/Transform.hpp>
 #include <need-hug-lib/hpp/components/Component.hpp>
@@ -13,7 +14,7 @@ namespace NeedHug
 	class NeedHugContext
 	{
 	public:
-		static void Create() 
+		static void Create()
 		{
 			context = new NeedHugContext();
 		}
@@ -35,7 +36,7 @@ namespace NeedHug
 			auto compIt = components.find(id);
 			if (compIt != components.end())
 			{
-                compIt->second.push_back(newComp);
+				compIt->second.push_back(newComp);
 			}
 			else
 			{
@@ -45,25 +46,36 @@ namespace NeedHug
 		}
 
 		template <typename T>
-		struct vectorTarget { Component<T>* operator ()(BaseComponent* value) const { return dynamic_cast<Component<T>*>(value); } };
+		struct vectorTarget
+		{
+			Component<T>* operator () (BaseComponent* value) const
+			{
+				return dynamic_cast<Component<T>*>(value);
+			}
+		};
 
 		template <typename T>
-		std::vector<Component<T>*> GetComponents()
+		std::unique_ptr<std::vector<Component<T>*>> GetComponents()
 		{
 			auto compIt = components.find(Component<T>::typeId);
 
 			if (compIt != components.end())
 			{
-				std::vector<Component<T>*> specificCompVec;
+				if (compIt->second.size() == 0)
+				{
+					return std::make_unique<std::vector<Component<T>*>>(std::vector<Component<T>*>());
+				}
+				std::vector<Component<T>*> specificCompVec(compIt->second.size());
 				std::transform(compIt->second.begin(), compIt->second.end(), specificCompVec.begin(), vectorTarget<T>());
-				return specificCompVec;
+				return std::make_unique<std::vector<Component<T>*>>(specificCompVec);
+
 			}
 			else
 			{
 				throw 1;
 			}
 		}
-		
+
 	private:
 		NeedHugContext() {}
 		virtual ~NeedHugContext();
@@ -72,7 +84,7 @@ namespace NeedHug
 
 		// --- Game engine stuff ---
 		std::vector<Entity> entities;
-        std::map<int, std::vector<BaseComponent*> > components;
+		std::map<int, std::vector<BaseComponent*> > components;
 	};
 }
 

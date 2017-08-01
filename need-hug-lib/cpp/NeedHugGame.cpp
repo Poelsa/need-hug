@@ -18,16 +18,16 @@ namespace NeedHug
 	ReturnCode NeedHugGame::Start()
 	{
 		ReturnCode returnCode = ReturnCode::Stop;
-		while(true)
+		while (true)
 		{
 			// Do game
-			
+
 			break; // Temporary test code
 		}
 
 		Component<Transform>* transformComp = NeedHugContext::GetContext().CreateComponent<Transform>();
 
-		std::vector<Component<Transform>*> allTransformComponents = NeedHugContext::GetContext().GetComponents<Transform>();
+		std::unique_ptr<std::vector<Component<Transform>*>> allTransformComponents = NeedHugContext::GetContext().GetComponents<Transform>();
 
 		returnCode = ReturnCode::Stop; // Temporary test code 
 		return returnCode;
