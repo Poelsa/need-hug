@@ -1,5 +1,5 @@
 #include <need-hug-lib/include/NeedHugGame.hpp>
-#include <need-hug-lib/include/ReturnCode/ReturnCodeConverter.hpp>
+#include <need-hug-lib/include/return_code/ReturnCodeConverter.hpp>
 
 #include <iostream>
 
