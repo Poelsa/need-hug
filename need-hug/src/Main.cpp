@@ -1,5 +1,5 @@
-#include <need-hug-lib/hpp/NeedHugGame.hpp>
-#include <need-hug-lib/hpp/ReturnCode/ReturnCodeConverter.hpp>
+#include <need-hug-lib/include/NeedHugGame.hpp>
+#include <need-hug-lib/include/ReturnCode/ReturnCodeConverter.hpp>
 
 #include <iostream>
 
@@ -29,5 +29,6 @@ int main(int argc, char** argv)
 	{
 		returnCodeValue = 0;
 	}
+
 	return returnCodeValue;
 }
