@@ -1,7 +1,7 @@
 #ifndef COMPONENT_HPP
 #define COMPONENT_HPP
 
-#include <need-hug-lib/hpp/components/BaseComponent.hpp>
+#include <need-hug-lib/include/components/BaseComponent.hpp>
 
 namespace NeedHug
 {

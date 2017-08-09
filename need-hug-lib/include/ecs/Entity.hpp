@@ -1,7 +1,7 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-#include <need-hug-lib/hpp/components/Transform.hpp>
+#include <need-hug-lib/include/components/Transform.hpp>
 
 namespace NeedHug
 {

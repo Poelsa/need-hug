@@ -1,8 +1,8 @@
 #ifndef RETURNCODECONVERTER_HPP
 #define RETURNCODECONVERTER_HPP
 
-#include <need-hug-lib/hpp/ReturnCode/ReturnCode.hpp>
-#include <need-hug-lib/hpp/ReturnCode/ReturnCodeInfo.hpp>
+#include <need-hug-lib/include/return_code/ReturnCode.hpp>
+#include <need-hug-lib/include/return_code/ReturnCodeInfo.hpp>
 
 namespace NeedHug
 {

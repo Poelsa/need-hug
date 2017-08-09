@@ -1,7 +1,7 @@
 #ifndef NEEDHUGGAME_HPP
 #define NEEDHUGGAME_HPP
 
-#include <need-hug-lib/hpp/ReturnCode/ReturnCode.hpp>
+#include <need-hug-lib/include/return_code/ReturnCode.hpp>
 
 namespace NeedHug
 {

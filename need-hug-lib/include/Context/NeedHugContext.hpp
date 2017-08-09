@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <memory>
 #include <ecs/Entity.hpp>
-#include <need-hug-lib/hpp/components/Transform.hpp>
-#include <need-hug-lib/hpp/components/Component.hpp>
+#include <need-hug-lib/include/components/Transform.hpp>
+#include <need-hug-lib/include/components/Component.hpp>
 
 namespace NeedHug
 {

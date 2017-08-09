@@ -6,11 +6,11 @@ set(MODULE_NAME ${NAME_OF_TEST_MODULE}${TEST_SUFFIX})
 project(${MODULE_NAME})
 
 # Find files
-file(GLOB_RECURSE HEADERS Headers/ *.hpp)
-file(GLOB_RECURSE SOURCES Source/ *.cpp)
+file(GLOB_RECURSE HEADERS include/ *.hpp)
+file(GLOB_RECURSE SOURCES src/ *.cpp)
 
 # Set include directories and libraries
-set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/hpp/)
+set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 set(LIBRARIES ${NAME_OF_TEST_MODULE} GTest::main)
 
 # Add the target

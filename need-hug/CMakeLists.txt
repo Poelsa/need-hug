@@ -5,10 +5,10 @@ set(MODULE_NAME need-hug)
 project(${MODULE_NAME})
 
 # Set the files used in the target
-file(GLOB_RECURSE HEADERS Headers/ *.hpp)
-file(GLOB_RECURSE SOURCES Source/ *.cpp)
+file(GLOB_RECURSE HEADERS include/ *.hpp)
+file(GLOB_RECURSE SOURCES src/ *.cpp)
 
-set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/hpp/)
+set(INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 set(LIBRARIES need-hug-lib)
 
 # Add the target

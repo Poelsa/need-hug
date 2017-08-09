@@ -1,7 +1,7 @@
 #ifndef TRANSFORM_HPP
 #define TRANSFORM_HPP
 
-#include <need-hug-lib/hpp/components/Component.hpp>
+#include <need-hug-lib/include/components/Component.hpp>
 
 namespace NeedHug
 {
