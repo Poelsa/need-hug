@@ -54,7 +54,7 @@ option(SFML_USE_STATIC_STD_LIBS OFF)
 ## Add folders
 add_subdirectory(need-hug)
 add_subdirectory(need-hug-lib)
-add_subdirectory(sfml)
+add_subdirectory(SFML)
 
 ## Test settings
 if (NH_BUILD_TEST)
