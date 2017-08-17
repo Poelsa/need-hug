@@ -2,8 +2,7 @@
 #define RETURNCODECONVERTERTEST_HPP
 
 #include <gtest/gtest.h>
-
-#include <need-hug-lib/include/return_code/ReturnCodeConverter.hpp>
+#include <return_code/ReturnCodeConverter.hpp>
 
 using namespace NeedHug;
 class ReturnCodeConverterTest : public testing::Test

@@ -29,6 +29,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_FOLDER})
 if (WIN32)
 	include("CMake/create_source_group.cmake")
 endif (WIN32)
+set(MZ_PREFIX NH_)
+include("CMake/mz_project_wrapper.cmake")
 
 ## Find external cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
@@ -39,7 +41,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 ## Add root as a valid include path for all projects
 include_directories(${REPOSITORY_ROOT})
 
-## Set global shared compiler optionss
+## Set global shared compiler options
 set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14") # Dont put on global flags (?)
 
 ## SFML paths and libs
@@ -52,9 +54,9 @@ option(SFML_BUILD_AUDIO OFF)
 option(SFML_USE_STATIC_STD_LIBS OFF)
 
 ## Add folders
-add_subdirectory(need-hug)
-add_subdirectory(need-hug-lib)
 add_subdirectory(SFML)
+add_subdirectory(need-hug-lib)
+add_subdirectory(need-hug)
 
 ## Test settings
 if (NH_BUILD_TEST)
