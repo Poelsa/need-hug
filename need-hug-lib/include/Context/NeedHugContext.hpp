@@ -8,24 +8,22 @@
 #include <ecs/Entity.hpp>
 #include <need-hug-lib/include/components/Transform.hpp>
 #include <need-hug-lib/include/components/Component.hpp>
+#include <memory>
 
 namespace NeedHug
 {
+	class Window;
+
 	class NeedHugContext
 	{
 	public:
-		static void Create()
-		{
-			context = new NeedHugContext();
-		}
-		static void Destroy()
-		{
-			delete context;
-		}
-		static NeedHugContext& GetContext()
-		{
-			return *context;
-		}
+		static void Create();
+
+		static void Destroy();
+
+		static NeedHugContext& GetContext();
+
+		std::shared_ptr<Window> GetWindow() const { return window; }
 
 		// --- Game stuff ---
 		template <typename T>
@@ -68,7 +66,6 @@ namespace NeedHug
 				std::vector<Component<T>*> specificCompVec(compIt->second.size());
 				std::transform(compIt->second.begin(), compIt->second.end(), specificCompVec.begin(), vectorTarget<T>());
 				return std::make_unique<std::vector<Component<T>*>>(specificCompVec);
-
 			}
 			else
 			{
@@ -77,14 +74,17 @@ namespace NeedHug
 		}
 
 	private:
-		NeedHugContext() {}
-		virtual ~NeedHugContext();
+		NeedHugContext();
+		~NeedHugContext();
 
 		static NeedHugContext* context;
 
 		// --- Game engine stuff ---
 		std::vector<Entity> entities;
 		std::map<int, std::vector<BaseComponent*> > components;
+
+	private:
+		std::shared_ptr<Window> window;
 	};
 }
 

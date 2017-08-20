@@ -12,7 +12,6 @@ public:
 	virtual ~NeedHugGame();
 
 	ReturnCode Start();
-
 private:
 	};
 }
