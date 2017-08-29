@@ -1,40 +1,41 @@
 #ifndef NEEDHUGCONTEXT_HPP
 #define NEEDHUGCONTEXT_HPP
 
-#include <vector>
 #include <memory>
-#include <ecs/Entity.hpp>
-#include <component/ComponentManager.hpp>
 
 namespace NeedHug
 {
+	class ComponentManager;
 	class Window;
 
-	class NeedHugContext
+	class NeedHugContext final
 	{
 	public:
+		//// Singleton functions
+		NeedHugContext(const NeedHugContext& needHugContext) = delete;
+		NeedHugContext(NeedHugContext&& needHugContext) = delete;
+		NeedHugContext& operator=(const NeedHugContext& needHugContext) = delete;
+		NeedHugContext& operator=(NeedHugContext&& needHugContext) = delete;
 		static void Create();
-
 		static void Destroy();
-
 		static NeedHugContext& GetContext();
-
-		std::shared_ptr<Window> GetWindow() const { return window; }
 		
+		//// Get functions
+
+		// TODO docs
+		std::shared_ptr<Window> GetWindow() const { return window; }
+
+		// TODO docs
 		std::shared_ptr<ComponentManager> GetComponentManager() const { return componentManager; }
 
 	private:
 		NeedHugContext();
 		~NeedHugContext();
-
 		static NeedHugContext* context;
 
-		// --- Game engine stuff ---
-		std::vector<Entity> entities;
-
 	private:
-		std::shared_ptr<Window> window;
 		std::shared_ptr<ComponentManager> componentManager;
+		std::shared_ptr<Window> window;
 	};
 }
 

@@ -1,4 +1,5 @@
 #include <context/NeedHugContext.hpp>
+#include <component/ComponentManager.hpp>
 #include <window/Window.hpp>
 #include <cassert>
 
