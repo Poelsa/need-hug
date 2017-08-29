@@ -8,12 +8,12 @@ function(mz_add_executable EXECUTABLE_NAME PATH COMPILE_OPTIONS INTERNAL_DEPENDE
 
 	set(${MZ_PREFIX}${EXECUTABLE_NAME}_INCLUDE ${PATH}/include CACHE PATH "Include path for module: ${EXECUTABLE_NAME}" FORCE)
 
-	file(GLOB_RECURSE HEADERS include/ *.hpp)
-	file(GLOB_RECURSE SOURCES src/ *.cpp)
+	file(GLOB_RECURSE HEADERS "${PATH}/include/" *.hpp)
+	file(GLOB_RECURSE SOURCES "${PATH}/src" *.cpp)
 
 	if(WIN32)
-		create_source_group("Header Files" "${PATH}/hpp" ${HEADERS})
-		create_source_group("Source Files" "${PATH}/cpp" ${SOURCES})
+		create_source_group("Header Files" "${PATH}/include" ${HEADERS})
+		create_source_group("Source Files" "${PATH}/src" ${SOURCES})
 	endif(WIN32)
 
 	set(INCLUDE_DIRECTORIES ${PATH}/include/)
@@ -38,12 +38,12 @@ function(mz_add_library LIBRARY_NAME LIBRARY_TYPE PATH COMPILE_OPTIONS INTERNAL_
 
 	set(${MZ_PREFIX}${LIBRARY_NAME}_INCLUDE ${PATH}/include CACHE PATH "Include path for module: ${LIBRARY_NAME}" FORCE)
 
-	file(GLOB_RECURSE HEADERS include/ *.hpp)
-	file(GLOB_RECURSE SOURCES src/ *.cpp)
+	file(GLOB_RECURSE HEADERS "${PATH}/include/" *.hpp)
+	file(GLOB_RECURSE SOURCES "${PATH}/src" *.cpp)
 
 	if(WIN32)
-		create_source_group("Header Files" "${PATH}/hpp" ${HEADERS})
-		create_source_group("Source Files" "${PATH}/cpp" ${SOURCES})
+		create_source_group("Header Files" "${PATH}/include" ${HEADERS})
+		create_source_group("Source Files" "${PATH}/src" ${SOURCES})
 	endif(WIN32)
 
 	set(INCLUDE_DIRECTORIES ${PATH}/include/)
