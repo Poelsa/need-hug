@@ -25,6 +25,7 @@ namespace NeedHug
 	NeedHugContext::NeedHugContext()
 	{
 		window = std::make_shared<Window>();
+		componentManager = std::make_shared<ComponentManager>();
 	}
 
 	NeedHugContext::~NeedHugContext()
