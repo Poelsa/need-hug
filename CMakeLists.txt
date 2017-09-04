@@ -49,6 +49,9 @@ else()
 	set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14")
 endif()
 
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+set(CMAKE_SHARED_LIBRARY_PREFIX "")
+
 ## Add folders
 add_subdirectory(ext)
 add_subdirectory(need-hug-lib)
