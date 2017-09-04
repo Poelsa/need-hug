@@ -63,7 +63,7 @@ option(SFML_BUILD_AUDIO OFF)
 option(SFML_USE_STATIC_STD_LIBS OFF)
 
 ## Add folders
-add_subdirectory(SFML)
+add_subdirectory(ext/SFML)
 add_subdirectory(need-hug-lib)
 add_subdirectory(need-hug)
 
