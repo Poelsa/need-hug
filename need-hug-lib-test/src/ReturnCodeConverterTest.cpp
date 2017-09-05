@@ -10,12 +10,18 @@ TEST_F(ReturnCodeConverterTest, convert_codeUnknown)
 	ASSERT_STREQ("Unknown", m_returnCodeConverter->Convert(ReturnCode::Unknown).info.c_str());
 }
 
-TEST_F(ReturnCodeConverterTest, convert_codeContinue)
+TEST_F(ReturnCodeConverterTest, convert_codeRunning)
 {
-	ASSERT_STREQ("Continue", m_returnCodeConverter->Convert(ReturnCode::Continue).info.c_str());
+	ASSERT_STREQ("Running", m_returnCodeConverter->Convert(ReturnCode::Running).info.c_str());
 }
 
-TEST_F(ReturnCodeConverterTest, convert_codeStop)
+TEST_F(ReturnCodeConverterTest, convert_codeStopEnd)
 {
-	ASSERT_STREQ("Stop", m_returnCodeConverter->Convert(ReturnCode::Stop).info.c_str());
+	ASSERT_STREQ("Stop_End", m_returnCodeConverter->Convert(ReturnCode::Stop_End).info.c_str());
+}
+
+
+TEST_F(ReturnCodeConverterTest, convert_codeStopRestart)
+{
+	ASSERT_STREQ("Stop_Restart", m_returnCodeConverter->Convert(ReturnCode::Stop_Restart).info.c_str());
 }

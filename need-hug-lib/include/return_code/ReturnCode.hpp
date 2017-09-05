@@ -8,8 +8,9 @@ namespace NeedHug
 	enum class ReturnCode : std::uint8_t
 	{
 		Unknown,
-		Continue,
-		Stop
+		Running,
+		Stop_Restart,
+		Stop_End
 	};
 }
 

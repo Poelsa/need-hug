@@ -10,13 +10,17 @@ namespace NeedHug
 		{
 			return ReturnCodeInfo("Unknown");
 		}
-		else if(p_returnCode == ReturnCode::Continue)
+		else if(p_returnCode == ReturnCode::Running)
 		{
-			return ReturnCodeInfo("Continue");
+			return ReturnCodeInfo("Running");
 		}
-		else if(p_returnCode == ReturnCode::Stop)
+		else if(p_returnCode == ReturnCode::Stop_End)
 		{
-			return ReturnCodeInfo("Stop");
+			return ReturnCodeInfo("Stop_End");
+		}
+		else if (p_returnCode == ReturnCode::Stop_Restart)
+		{
+			return ReturnCodeInfo("Stop_Restart");
 		}
 		const std::string message = std::string("Given returnCode does not exist: ").append(std::to_string(static_cast<int>(p_returnCode)));
 		throw std::runtime_error(message);

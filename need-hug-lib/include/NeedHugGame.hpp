@@ -1,6 +1,8 @@
 #ifndef NEEDHUGGAME_HPP
 #define NEEDHUGGAME_HPP
 
+#include <thread>
+
 #include <need-hug-lib/include/return_code/ReturnCode.hpp>
 
 namespace NeedHug
@@ -13,6 +15,10 @@ public:
 
 	ReturnCode Start();
 private:
+	void GameLogicLoop();
+
+	ReturnCode gameStatus;
+	std::thread logicThread;
 	};
 }
 
