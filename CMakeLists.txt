@@ -47,12 +47,15 @@ if(WIN32)
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -W4 -O2 -std=c++14")
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W4 -_ITERATOR_DEBUG_LEVEL=2 -std=c++14")
 else()
-	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -Wall -O2 -std=gnu++14")
-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Wall -std=gnu++14")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE} -g -Wall -O2 -std=gnu++14 -pthread -lsfml-system")
 endif()
 
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
+
+option(SFML_BUILD_NETWORK OFF)
+option(SFML_BUILD_AUDIO OFF)
+find_package(SFML COMPONENTS graphics window system REQUIRED)
 
 ## Add folders
 add_subdirectory(ext)
