@@ -44,9 +44,11 @@ include_directories(${REPOSITORY_ROOT})
 ## Set global shared compiler options
 # TODO Dont put options on global flags
 if(WIN32)
-	set(CMAKE_CXX_FLAGS "-W4 -O2 -std=c++14")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -W4 -O2 -std=c++14")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W4 -_ITERATOR_DEBUG_LEVEL=2 -std=c++14")
 else()
-	set(CMAKE_CXX_FLAGS "-g -Wall -O2 -std=gnu++14")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -Wall -O2 -std=gnu++14")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Wall -std=gnu++14")
 endif()
 
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
