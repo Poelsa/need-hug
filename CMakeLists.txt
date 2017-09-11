@@ -9,8 +9,8 @@ if (NH_BUILD_TEST)
 	
 	# Hunter settings
 	HunterGate(
-	    URL "https://github.com/ruslo/hunter/archive/v0.18.39.tar.gz"
-	    SHA1 "a6fbc056c3d9d7acdaa0a07c575c9352951c2f6c"
+	    URL "https://github.com/ruslo/hunter/archive/v0.19.97.tar.gz"
+	    SHA1 "d4fc45214ccb23a077b04ba8b50f2e8214b3a3ad"
 	)
 endif (NH_BUILD_TEST)
 
