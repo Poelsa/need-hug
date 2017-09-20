@@ -11,6 +11,7 @@ namespace NeedHug
 		virtual ~MailBox() = default;
 
 		void SendEvents();
+
 	};
 }
 

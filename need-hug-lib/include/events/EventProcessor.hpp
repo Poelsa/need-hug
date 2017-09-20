@@ -11,7 +11,7 @@ namespace NeedHug
 			EventProcessor() { NeedHugContext::GetContext().GetMailBox().RegisterReceiver(this) }
 			virtual ~EventProcessor() = default;
 
-			virtual void ReceiveEvents(std::vector<T>);
+			virtual void ReceiveEvents(std::shared_ptr<std::vector<T>>);
 
 	};
 }

@@ -7,22 +7,22 @@
 
 namespace NeedHug
 {
-	template<typename U>
+	template<typename T>
 	class EventBox
 	{
 	public:
-		EventBox() = default;
+		EventBox() : events(std::make_shared<std::vector<T>>(new std::vector<T>())) {};
 		virtual ~EventBox() = default;
 
-		void AddEvent(U&& event) { events.push_back(std::move(event)); }
-		void RegisterReceiver(EventProcessor<U>& receiver) { receivers.push_back(receiver); }
+		void AddEvent(T&& event) { events.push_back(std::move(event)); }
+		void RegisterReceiver(EventProcessor<T>& receiver) { receivers.push_back(receiver); }
 
 	protected:
 		void SendEvents();
 
 	private:
-		std::vector<U> events;
-		std::vector<EventProcessor<U>*> receivers;
+		std::shared_ptr<std::vector<T>> events;
+		std::vector<EventProcessor<T>*> receivers;
 	};
 }
 #endif

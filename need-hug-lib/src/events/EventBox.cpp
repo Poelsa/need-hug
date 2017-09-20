@@ -1,11 +1,11 @@
 #include <need-hug-lib/include/events/EventBox.hpp>
 
-template<typename U>
-void NeedHug::EventBox<U>::SendEvents()
+template<typename T>
+void NeedHug::EventBox<T>::SendEvents()
 {
 	for (auto& receiver : receivers)
 	{
 		receiver.ReceiveEvents(events);
 	}
-	events.clear();
+	events = std::make_shared<std::vector<T>>(new std::vector<T>());
 }
