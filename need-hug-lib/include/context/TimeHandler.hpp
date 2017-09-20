@@ -9,6 +9,8 @@ namespace NeedHug
     class TimeHandler
     {
     public:
+        /// minTime decides if the update function should 
+        /// wait a minimum amount of time before continuing.
         TimeHandler(bool minTime);
         virtual ~TimeHandler();
 
