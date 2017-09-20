@@ -17,8 +17,8 @@ namespace NeedHug
     {
         if (minTime)
         {
-            int64_t sleepAmount = (minDeltaT - clock.getElapsedTime()).asMilliseconds();
-            std::this_thread::sleep_for(std::chrono::milliseconds(sleepAmount));
+            int64_t sleepAmount = (minDeltaT - clock.getElapsedTime()).asMicroseconds();
+            std::this_thread::sleep_for(std::chrono::microseconds(sleepAmount));
         }
         deltaT = clock.getElapsedTime();
         totalT += deltaT;
