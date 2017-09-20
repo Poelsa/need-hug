@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
 
-## SFML
 option(SFML_BUILD_NETWORK OFF)
 option(SFML_BUILD_AUDIO OFF)
 option(SFML_USE_STATIC_STD_LIBS OFF)
-find_package(SFML COMPONENTS graphics window system)
+
+if(WIN32)
+	set(SFML_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ext/SFML/include" CACHE PATH "" FORCE)
+	set(SFML_OUTPUT_FOLDER ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Debug CACHE PATH "" FORCE)
+	set(SFML_LIBRARIES ${SFML_OUTPUT_FOLDER}/sfml-graphics-d.lib ${SFML_OUTPUT_FOLDER}/sfml-system-d.lib ${SFML_OUTPUT_FOLDER}/sfml-window-d.lib CACHE PATH "" FORCE)
+	add_subdirectory(SFML)
+endif(WIN32)

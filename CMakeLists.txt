@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 
 option(NH_BUILD_TEST "Check this if you want to build test project." OFF)
 
-## HunterGate settings
+## Test libs
 if (NH_BUILD_TEST)
 	# Include HuntersGate file
 	include("CMake/HunterGate.cmake")
@@ -35,8 +35,6 @@ include("CMake/mz_project_wrapper.cmake")
 ## Find external cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 
-## Require modules
-# Empty at the moment
 
 ## Add root as a valid include path for all projects
 include_directories(${REPOSITORY_ROOT})
@@ -53,14 +51,16 @@ endif()
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
-option(SFML_BUILD_NETWORK OFF)
-option(SFML_BUILD_AUDIO OFF)
-find_package(SFML COMPONENTS graphics window system REQUIRED)
-
 ## Add folders
 add_subdirectory(ext)
+if(UNIX)
+	find_package(SFML COMPONENTS graphics window system)
+endif(UNIX)
+
+
 add_subdirectory(need-hug-lib)
 add_subdirectory(need-hug)
+
 
 ## Test settings
 if (NH_BUILD_TEST)
