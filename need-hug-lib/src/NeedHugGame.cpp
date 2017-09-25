@@ -2,6 +2,7 @@
 #include <iostream>
 #include <context/NeedHugContext.hpp>
 #include <window/Window.hpp>
+#include <context/TimeHandler.hpp>
 
 namespace NeedHug
 {
@@ -36,6 +37,7 @@ namespace NeedHug
 		while (gameStatus == ReturnCode::Running)
 		{
 			// Do game
+			NeedHugContext::GetContext().GetTimeHandler()->Update();
 		}
 	}
 }
