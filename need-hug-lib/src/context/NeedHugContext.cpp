@@ -1,6 +1,7 @@
 #include <context/NeedHugContext.hpp>
 #include <component/ComponentManager.hpp>
 #include <window/Window.hpp>
+#include <context/TimeHandler.hpp>
 #include <cassert>
 
 namespace NeedHug
@@ -27,6 +28,7 @@ namespace NeedHug
 	{
 		window = std::make_shared<Window>();
 		componentManager = std::make_shared<ComponentManager>();
+		timeHandler = std::make_shared<TimeHandler>(true);
 	}
 
 	NeedHugContext::~NeedHugContext()

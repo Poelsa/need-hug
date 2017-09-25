@@ -11,7 +11,7 @@ namespace NeedHug
     public:
         /// minTime decides if the update function should 
         /// wait a minimum amount of time before continuing.
-        TimeHandler(bool minTime);
+        TimeHandler(bool minTime = false);
         virtual ~TimeHandler();
 
         void Update();
