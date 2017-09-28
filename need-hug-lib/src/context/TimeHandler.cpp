@@ -4,20 +4,14 @@
 
 namespace NeedHug
 {
-    TimeHandler::TimeHandler(bool minTime)
-    {
-        this->minTime = minTime;
-    }
-    TimeHandler::~TimeHandler()
-    {
-
-    }
+    TimeHandler::TimeHandler(bool minTime) :
+        minTime(minTime) { }
 
     void TimeHandler::Update()
     {
         if (minTime)
         {
-            int64_t sleepAmount = (minDeltaT - clock.getElapsedTime()).asMicroseconds();
+            const int64_t sleepAmount = (minDeltaT - clock.getElapsedTime()).asMicroseconds();
             std::this_thread::sleep_for(std::chrono::microseconds(sleepAmount));
         }
         deltaT = clock.getElapsedTime();
@@ -25,12 +19,12 @@ namespace NeedHug
         clock.restart();
     }
 
-    float TimeHandler::GetElapsedTime()
+    const float TimeHandler::GetElapsedTime()
     {
         return deltaT.asSeconds();
     }
 
-    float TimeHandler::GetTotalTime()
+    const float TimeHandler::GetTotalTime()
     {
         return totalT.asSeconds();
     }

@@ -1,5 +1,5 @@
-#ifndef NEEDHUG_TIEHANDLER_HPP
-#define NEEDHUG_TIEHANDLER_HPP
+#ifndef NEEDHUG_TIMEHANDLER_HPP
+#define NEEDHUG_TIMEHANDLER_HPP
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
@@ -12,13 +12,16 @@ namespace NeedHug
         /// minTime decides if the update function should 
         /// wait a minimum amount of time before continuing.
         TimeHandler(bool minTime = false);
-        virtual ~TimeHandler();
+
+        virtual ~TimeHandler() = default;
 
         void Update();
+
         /// Returns time since last update
-        float GetElapsedTime();
+        const float GetElapsedTime();
+
         /// Returns time since start
-        float GetTotalTime();
+        const float GetTotalTime();
     private:
         //Functions
     private:
