@@ -11,7 +11,7 @@ namespace NeedHug
 	class EventBox
 	{
 	public:
-		EventBox() : events(std::make_shared<std::vector<T>>(new std::vector<T>())) {};
+		EventBox() : events(std::make_shared<std::vector<T>>()) {};
 		virtual ~EventBox() = default;
 
 		void AddEvent(T&& event) { events.push_back(std::move(event)); }

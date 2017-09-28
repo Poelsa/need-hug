@@ -7,5 +7,5 @@ void NeedHug::EventBox<T>::SendEvents()
 	{
 		receiver.ReceiveEvents(events);
 	}
-	events = std::make_shared<std::vector<T>>(new std::vector<T>());
+	events = std::make_shared<std::vector<T>>();
 }

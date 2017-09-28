@@ -8,6 +8,7 @@ namespace NeedHug
 	class ComponentManager;
 	class Window;
 	class TimeHandler;
+	class MailBox;
 
 	class NeedHugContext final
 	{
@@ -20,11 +21,6 @@ namespace NeedHug
 		static void Create();
 		static void Destroy();
 		static NeedHugContext& GetContext();
-
-		static MailBox& GetMailbox() const
-		{
-			return *mailbox;
-		}
 		
 		//// Get functions
 
@@ -37,16 +33,18 @@ namespace NeedHug
 		// TODO docs
 		std::shared_ptr<TimeHandler> GetTimeHandler() const { return timeHandler; }
 
+		std::shared_ptr<MailBox> GetMailBox() const { return mailbox; }
+
 	private:
 		NeedHugContext();
 		~NeedHugContext();
 		static NeedHugContext* context;
-		static MailBox* mailbox;
 
 	private:
 		std::shared_ptr<ComponentManager> componentManager;
 		std::shared_ptr<Window> window;
 		std::shared_ptr<TimeHandler> timeHandler;
+		std::shared_ptr<MailBox> mailbox;
 	};
 }
 
