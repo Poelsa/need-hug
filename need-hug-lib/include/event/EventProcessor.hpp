@@ -1,5 +1,9 @@
-#ifndef BASE_COMPONENT_HPP
-#define BASE_COMPONENT_HPP
+#ifndef NEEDHUG_EVENTPROCESSOR_HPP
+#define NEEDHUG_EVENTPROCESSOR_HPP
+
+#include <vector>
+#include <memory>
+#include <need-hug-lib/include/context/NeedHugContext.hpp>
 
 namespace NeedHug
 {

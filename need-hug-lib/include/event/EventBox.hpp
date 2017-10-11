@@ -1,5 +1,5 @@
-#ifndef EVENTBOX_HPP
-#define EVENTBOX_HPP
+#ifndef NEEDHUG_EVENTBOX_HPP
+#define NEEDHUG_EVENTBOX_HPP
 
 #include <vector>
 #include <memory>
