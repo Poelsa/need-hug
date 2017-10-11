@@ -1,4 +1,4 @@
-#include <need-hug-lib/include/events/MailBox.hpp>
+#include <need-hug-lib/include/event/MailBox.hpp>
 
 
 void NeedHug::MailBox::SendEvents()

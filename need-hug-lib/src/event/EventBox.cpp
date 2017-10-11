@@ -1,4 +1,4 @@
-#include <need-hug-lib/include/events/EventBox.hpp>
+#include <need-hug-lib/include/event/EventBox.hpp>
 
 template<typename T>
 void NeedHug::EventBox<T>::SendEvents()

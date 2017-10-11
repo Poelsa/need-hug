@@ -3,7 +3,7 @@
 #include <window/Window.hpp>
 #include <context/TimeHandler.hpp>
 #include <cassert>
-#include <need-hug-lib/include/events/MailBox.hpp>
+#include <need-hug-lib/include/event/MailBox.hpp>
 
 namespace NeedHug
 {

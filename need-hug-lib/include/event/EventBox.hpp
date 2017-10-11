@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include <need-hug-lib/include/events/EventProcessor.hpp>
+#include <need-hug-lib/include/event/EventProcessor.hpp>
 
 namespace NeedHug
 {
