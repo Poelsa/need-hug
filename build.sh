@@ -10,7 +10,7 @@ if [ $? -ne 0 ]; then
 	exit 1;
 fi
 
-cmake MAKE_BUILD_TYPE=DEBUG ..
+cmake -DNH_BUILD_TEST=on MAKE_BUILD_TYPE=DEBUG ..
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
