@@ -3,7 +3,6 @@
 #include <window/Window.hpp>
 #include <context/TimeHandler.hpp>
 #include <cassert>
-#include <need-hug-lib/include/event/MailBox.hpp>
 
 namespace NeedHug
 {
@@ -30,7 +29,6 @@ namespace NeedHug
 		window = std::make_shared<Window>();
 		componentManager = std::make_shared<ComponentManager>();
 		timeHandler = std::make_shared<TimeHandler>(true);
-		mailbox = std::make_shared<MailBox>();
 	}
 
 	NeedHugContext::~NeedHugContext()
