@@ -5,6 +5,7 @@ namespace NeedHug
 {
     struct BaseEvent
     {
+        virtual ~BaseEvent() {}
     };
 
     struct TestEvent : public BaseEvent

@@ -25,7 +25,7 @@ namespace NeedHug
 		gameStatus = ReturnCode::Running;
 		NeedHugContext::GetContext().GetWindow()->SetupWindow(200, 200);
 
-        NeedHugContext::GetContext().GetEventManager()->Subscribe(1, [](BaseEvent pl) { std::cout << pl.a << std::endl; });
+        NeedHugContext::GetContext().GetEventManager()->Subscribe(1, [](BaseEvent* pl) { std::cout << dynamic_cast<TestEvent*>(pl)->a << std::endl; });
 
 		while (gameStatus == ReturnCode::Running)
 		{
@@ -35,16 +35,16 @@ namespace NeedHug
 		gameStatus = ReturnCode::Stop_End; // Temporary test code 
 		return gameStatus;
 	}
-
+    
 	void NeedHugGame::GameLogicLoop()
 	{
-        TestEvent hej;
+        TestEvent* hej = new TestEvent();
 		while (gameStatus == ReturnCode::Running)
 		{
 			// Do game
 			NeedHugContext::GetContext().GetTimeHandler()->Update();
-            hej.a = static_cast<int>(NeedHugContext::GetContext().GetTimeHandler()->GetTotalTime());
-            if(hej.a > 1)
+            hej->a = static_cast<int>(NeedHugContext::GetContext().GetTimeHandler()->GetTotalTime());
+            if(hej->a > 1)
                 NeedHugContext::GetContext().GetEventManager()->Notify(1, hej);
 		}
 	}

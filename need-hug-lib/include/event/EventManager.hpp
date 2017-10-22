@@ -15,24 +15,25 @@ namespace NeedHug
         EventManager() {};
         virtual ~EventManager() = default;
 
-        template <typename T>
-        void Subscribe<T>(std::function<void(T)> callback)
+        void Subscribe(int eventId, std::function<void(BaseEvent*)> callback)
         {
-            eventCallbacks.push_back(callback);
+            if (eventCallbacks.find(eventId) == eventCallbacks.end())
+            {
+                eventCallbacks[eventId] = std::vector<std::function<void(BaseEvent*)>>();
+            }
+            eventCallbacks[eventId].push_back(callback);
         }
 
-        template <typename T>
-        void Notify<T>(T payload)
+        void Notify(int eventId, BaseEvent* payload)
         {
-            for (auto callback : eventCallbacks)
+            for (auto callback : eventCallbacks[eventId])
             {
                 callback(payload);
             }
         }
         
     private:
-        template <typename T>
-        std::vector<std::function<void(T)>> eventCallbacks;
+        std::map<int, std::vector<std::function<void(BaseEvent*)>>> eventCallbacks;
     };
 }
 
