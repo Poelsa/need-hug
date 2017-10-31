@@ -4,6 +4,7 @@
 #include <functional>
 #include <vector>
 #include <map>
+#include <typeindex>
 
 #include <events/BaseEvent.hpp>
 
@@ -15,25 +16,28 @@ namespace NeedHug
         EventManager() {};
         virtual ~EventManager() = default;
 
-        void Subscribe(int eventId, std::function<void(BaseEvent*)> callback)
+        template <typename T>
+        void Subscribe(std::function<void(BaseEvent*)> callback)
         {
-            if (eventCallbacks.find(eventId) == eventCallbacks.end())
+            auto key = std::type_index(typeid(T));
+            if (eventCallbacks.find(key) == eventCallbacks.end())
             {
-                eventCallbacks[eventId] = std::vector<std::function<void(BaseEvent*)>>();
+                eventCallbacks[key] = std::vector<std::function<void(BaseEvent*)>>();
             }
-            eventCallbacks[eventId].push_back(callback);
+            eventCallbacks[key].push_back(callback);
         }
 
-        void Notify(int eventId, BaseEvent* payload)
+        template <typename T>
+        void Notify(BaseEvent* payload)
         {
-            for (auto callback : eventCallbacks[eventId])
+            for (auto callback : eventCallbacks[std::type_index(typeid(T))])
             {
                 callback(payload);
             }
         }
         
     private:
-        std::map<int, std::vector<std::function<void(BaseEvent*)>>> eventCallbacks;
+        std::map<std::type_index, std::vector<std::function<void(BaseEvent*)>>> eventCallbacks;
     };
 }
 
