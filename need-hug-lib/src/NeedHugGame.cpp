@@ -1,8 +1,10 @@
 #include <NeedHugGame.hpp>
 #include <iostream>
-#include <context/NeedHugContext.hpp>
 #include <window/Window.hpp>
+#include <context/NeedHugContext.hpp>
 #include <context/TimeHandler.hpp>
+
+#include <event/EventManager.hpp>
 
 namespace NeedHug
 {
@@ -31,7 +33,7 @@ namespace NeedHug
 		gameStatus = ReturnCode::Stop_End; // Temporary test code 
 		return gameStatus;
 	}
-
+    
 	void NeedHugGame::GameLogicLoop()
 	{
 		while (gameStatus == ReturnCode::Running)
