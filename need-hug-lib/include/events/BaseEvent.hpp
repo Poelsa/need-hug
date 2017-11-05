@@ -3,9 +3,16 @@
 
 namespace NeedHug
 {
+    // TODO: Namespace events?
     struct BaseEvent
     {
         virtual ~BaseEvent() {}
+    };
+
+    struct EventJump : public BaseEvent
+    {
+        EventJump(int p) : player(p) {};
+        int player;
     };
 }
 

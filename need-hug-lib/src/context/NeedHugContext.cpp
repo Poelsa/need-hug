@@ -2,6 +2,7 @@
 #include <component/ComponentManager.hpp>
 #include <window/Window.hpp>
 #include <context/TimeHandler.hpp>
+#include <context/InputHandler.hpp>
 #include <event/EventManager.hpp>
 #include <cassert>
 
@@ -30,7 +31,8 @@ namespace NeedHug
 		window = std::make_shared<Window>();
 		componentManager = std::make_shared<ComponentManager>();
 		timeHandler = std::make_shared<TimeHandler>(true);
-        eventManager = std::make_shared<EventManager>();
+		eventManager = std::make_shared<EventManager>();
+		inputHandler = std::make_shared<InputHandler>();
 	}
 
 	NeedHugContext::~NeedHugContext()

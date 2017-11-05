@@ -1,7 +1,8 @@
 #ifndef NEEDHUG_KEYMAP_HPP
 #define NEEDHUG_KEYMAP_HPP
 
-#include <SFML/Keyboard.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include <events/BaseEvent.hpp>
 
 namespace NeedHug 
 {
@@ -10,9 +11,9 @@ namespace NeedHug
 
     enum class UserAction
     {
-        P1_MOVE_LEFT;
-        P1_MOVE_RIGHT;
-        P1_JUMP;
+        P1_MOVE_LEFT,
+        P1_MOVE_RIGHT,
+        P1_JUMP
     };
 
     enum class KeyState
@@ -20,13 +21,14 @@ namespace NeedHug
         PRESSED,
         HOLD
     };
-
+    
     struct KeyMap
     {
         UserAction action;
         sf::Keyboard::Key key;
         KeyState keyState;
         bool wasPressed = false;
+        BaseEvent* event;
     };
 
 }

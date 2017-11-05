@@ -3,8 +3,10 @@
 #include <window/Window.hpp>
 #include <context/NeedHugContext.hpp>
 #include <context/TimeHandler.hpp>
+#include <context/InputHandler.hpp>
 
 #include <event/EventManager.hpp>
+#include <events/BaseEvent.hpp>
 
 namespace NeedHug
 {
@@ -25,6 +27,8 @@ namespace NeedHug
 		gameStatus = ReturnCode::Running;
 		NeedHugContext::GetContext().GetWindow()->SetupWindow(200, 200);
 
+		NeedHugContext::GetContext().GetEventManager()->Subscribe<EventJump*>([](NeedHug::BaseEvent* pl) {  std::cout << dynamic_cast<EventJump*>(pl)->player << std::endl; });
+
 		while (gameStatus == ReturnCode::Running)
 		{
 			gameStatus = NeedHugContext::GetContext().GetWindow()->Update();
@@ -40,6 +44,7 @@ namespace NeedHug
 		{
 			// Do game
 			NeedHugContext::GetContext().GetTimeHandler()->Update();
+			NeedHugContext::GetContext().GetInputHandler()->Update();
 		}
 	}
 }
