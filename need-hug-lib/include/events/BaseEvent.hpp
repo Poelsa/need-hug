@@ -11,7 +11,7 @@ namespace NeedHug
 
     struct EventJump : public BaseEvent
     {
-        EventJump(int p) : player(p) {};
+        explicit EventJump(int p) : player(p) {};
         int player;
     };
 }

@@ -4,6 +4,8 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <events/BaseEvent.hpp>
 
+#include <functional>
+
 namespace NeedHug 
 {
     // Action | Key | KeyState
@@ -28,7 +30,8 @@ namespace NeedHug
         sf::Keyboard::Key key;
         KeyState keyState;
         bool wasPressed = false;
-        BaseEvent* event;
+        std::function<void()> notify;
+        std::function<void()> notifyStop;
     };
 
 }

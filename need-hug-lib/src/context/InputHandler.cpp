@@ -2,17 +2,18 @@
 #include <context/NeedHugContext.hpp>
 #include <event/EventManager.hpp>
 
-#include <iostream>
+#include <memory>
 
 namespace NeedHug
 {
     InputHandler::InputHandler()
     {
+        std::shared_ptr<EventManager> em = NeedHugContext::GetContext().GetEventManager();
         KeyMap thingy;
         thingy.action = UserAction::P1_JUMP;
         thingy.key = sf::Keyboard::Key::Space;
         thingy.keyState = KeyState::HOLD;
-        thingy.event = new EventJump(1);
+        thingy.notify = [&em]() { em->Notify<EventJump*>(new EventJump(1)); };
         testMapList.push_back(thingy);
     }
 
@@ -24,7 +25,7 @@ namespace NeedHug
             {
                 km.wasPressed = true;
                 //Do (start) event
-                NeedHugContext::GetContext().GetEventManager()->Notify<EventJump*>(km.event);
+                km.notify();
             }
             else if (km.wasPressed && !sf::Keyboard::isKeyPressed(km.key))
             {
@@ -32,6 +33,7 @@ namespace NeedHug
                 if(km.keyState == KeyState::HOLD)
                 {
                     //Do end event
+                    km.notifyStop();
                 }
             }
         }
