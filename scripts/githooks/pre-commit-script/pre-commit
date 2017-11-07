@@ -1,5 +1,5 @@
 #!/bin/bash
-name=`echo $BASH_SOURCE | rev | cut -d"/" -f1 | rev`
+name=`echo $0 | grep -oP '[^/]*$'`
 
 pathToScriptFolder=`find -name "$name" | grep -v "\.git"`
 # echo "[DEBUG] pathToScriptFolder: $pathToScriptFolder";

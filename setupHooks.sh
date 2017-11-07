@@ -18,7 +18,7 @@ echo "Copying git hooks"
 for folder in scripts/githooks/*;
 do
 	if test -d $folder; then
-		scriptName=`echo $folder | rev | cut -d"/" -f1 | rev`;
+		scriptName=`echo $folder | grep -oP '[^/]*$'`;
 		scriptName=${scriptName%-*} # Remove everything after the last -
 		scriptPath="$folder/$scriptName";
 		echo "Copying githook: $scriptName"
