@@ -17,17 +17,16 @@ else
 fi
 
 # Find all files that has been changed
-files=`git diff --cached -p --diff-algorithm=minimal | grep -a "diff --git" | cut -d" " -f3 | cut -d"/" -f2- | grep -a "\.cpp\|\.hpp"`
+files=`git diff --cached --name-only`
 echo "[$date] All files: $files" >> $logFile
 
 # Cross reference with deleted files, aka, remove deleted files from format check.
-for deletedFile in $(git diff --cached --summary | grep -a delete | cut -d" " -f5)
-do
-	files=`echo "$files" | grep -a -v $deletedFile`
-done
+deletedFiles=`git diff --cached --summary | grep -a delete | cut -d" " -f5`
+differenceSet=`echo "$files" | grep -vxF "$deletedFiles"`
+echo "[$date] Difference Set" differenceSet >> $logFile
 
 echo -e "Checking formatting in source files."
-for file in $(echo "$files")
+for file in $(echo "$differenceSet")
 do
 	echo -e "[$date] File: $file." >> $logFile
 	echo -e "Checking $file."
