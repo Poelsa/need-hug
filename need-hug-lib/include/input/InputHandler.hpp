@@ -1,7 +1,7 @@
 #ifndef NEEDHUG_INPUTHANDLER_HPP
 #define NEEDHUG_INPUTHANDLER_HPP
 
-#include <context/KeyMap.hpp>
+#include <input/KeyMap.hpp>
 #include <vector>
 
 namespace NeedHug

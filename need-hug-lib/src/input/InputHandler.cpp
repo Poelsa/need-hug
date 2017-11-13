@@ -1,4 +1,4 @@
-#include <context/InputHandler.hpp>
+#include <input/InputHandler.hpp>
 #include <context/NeedHugContext.hpp>
 #include <event/EventManager.hpp>
 
