@@ -3,7 +3,7 @@
 #include <window/Window.hpp>
 #include <context/NeedHugContext.hpp>
 #include <context/TimeHandler.hpp>
-#include <context/InputHandler.hpp>
+#include <input/InputHandler.hpp>
 
 #include <event/EventManager.hpp>
 #include <events/BaseEvent.hpp>

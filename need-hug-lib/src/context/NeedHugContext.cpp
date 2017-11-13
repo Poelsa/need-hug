@@ -2,7 +2,7 @@
 #include <component/ComponentManager.hpp>
 #include <window/Window.hpp>
 #include <context/TimeHandler.hpp>
-#include <context/InputHandler.hpp>
+#include <input/InputHandler.hpp>
 #include <event/EventManager.hpp>
 #include <cassert>
 

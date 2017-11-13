@@ -26,6 +26,7 @@ namespace NeedHug
     
     struct KeyMap
     {
+        std::string name;
         UserAction action;
         sf::Keyboard::Key key;
         KeyState keyState;

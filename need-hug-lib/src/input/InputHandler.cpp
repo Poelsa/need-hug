@@ -1,6 +1,7 @@
 #include <input/InputHandler.hpp>
 #include <context/NeedHugContext.hpp>
 #include <event/EventManager.hpp>
+#include <input/bindings.hpp>
 
 #include <memory>
 
@@ -8,13 +9,7 @@ namespace NeedHug
 {
     InputHandler::InputHandler()
     {
-        std::shared_ptr<EventManager> em = NeedHugContext::GetContext().GetEventManager();
-        KeyMap thingy;
-        thingy.action = UserAction::P1_JUMP;
-        thingy.key = sf::Keyboard::Key::Space;
-        thingy.keyState = KeyState::HOLD;
-        thingy.notify = [&em]() { em->Notify<EventJump*>(new EventJump(1)); };
-        testMapList.push_back(thingy);
+        testMapList = InitializeKeyMap();
     }
 
     void InputHandler::Update()
