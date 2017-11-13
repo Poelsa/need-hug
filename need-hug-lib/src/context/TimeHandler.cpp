@@ -9,7 +9,11 @@ namespace NeedHug
 
     void TimeHandler::Update()
     {
-        if (minTime)
+        if(isPaused)
+        {
+            return;
+        }
+        if(minTime)
         {
             const int64_t sleepAmount = (minDeltaT - clock.getElapsedTime()).asMicroseconds();
             std::this_thread::sleep_for(std::chrono::microseconds(sleepAmount));
@@ -19,13 +23,21 @@ namespace NeedHug
         clock.restart();
     }
 
-    const float TimeHandler::GetElapsedTime()
+    void TimeHandler::Pause()
     {
-        return deltaT.asSeconds();
+        isPaused = true;
+        deltaT = clock.getElapsedTime();
+        totalT += deltaT;
+        clock.restart();
     }
 
-    const float TimeHandler::GetTotalTime()
+    void TimeHandler::Resume()
     {
-        return totalT.asSeconds();
+        isPaused = false;
+        clock.restart();
     }
-}
+
+    const float TimeHandler::GetElapsedTime() { return deltaT.asSeconds(); }
+
+    const float TimeHandler::GetTotalTime() { return totalT.asSeconds(); }
+} // namespace NeedHug

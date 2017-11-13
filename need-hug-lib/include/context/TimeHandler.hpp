@@ -17,6 +17,10 @@ namespace NeedHug
 
         void Update();
 
+        void Pause();
+
+        void Resume();
+
         /// Returns time since last update
         const float GetElapsedTime();
 
@@ -27,11 +31,12 @@ namespace NeedHug
     private:
         /// Should be const
         bool minTime;
-        const sf::Time minDeltaT = sf::seconds(1.0f/60);
+        bool isPaused = false;
+        const sf::Time minDeltaT = sf::seconds(1.0f / 60);
         sf::Time deltaT = sf::Time::Zero;
         sf::Time totalT = sf::Time::Zero;
         sf::Clock clock = sf::Clock();
     };
-}
+} // namespace NeedHug
 
 #endif
