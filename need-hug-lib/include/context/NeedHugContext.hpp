@@ -9,6 +9,7 @@ namespace NeedHug
 	class Window;
 	class TimeHandler;
     class EventManager;
+    class ConfigurationManager;
 
 	class NeedHugContext final
 	{
@@ -36,6 +37,9 @@ namespace NeedHug
         // TODO docs
         std::shared_ptr<EventManager> GetEventManager() const { return eventManager; }
 
+        // TODO docs
+        ConfigurationManager& GetConfigurationManager() const { return *configurationManager; }
+
 	private:
 		NeedHugContext();
 		~NeedHugContext();
@@ -46,6 +50,7 @@ namespace NeedHug
 		std::shared_ptr<Window> window;
 		std::shared_ptr<TimeHandler> timeHandler;
         std::shared_ptr<EventManager> eventManager;
+        std::shared_ptr<ConfigurationManager> configurationManager;
 	};
 }
 
