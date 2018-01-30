@@ -15,7 +15,7 @@ namespace NeedHug
 
 	}
 
-	void Window::SetupWindow(std::uint32_t windowWidth, std::uint32_t windowHeigth)
+	void Window::SetupWindow(const std::uint32_t windowWidth, const std::uint32_t windowHeigth)
 	{
 		window = std::make_unique<sf::RenderWindow>(sf::VideoMode(windowWidth, windowHeigth), "SFML works!");
 

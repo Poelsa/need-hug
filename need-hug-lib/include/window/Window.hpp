@@ -15,7 +15,7 @@ namespace NeedHug
 		Window();
 		virtual ~Window();
 
-		void SetupWindow(std::uint32_t windowWidth, std::uint32_t windowHeigth);
+		void SetupWindow(const std::uint32_t windowWidth, const std::uint32_t windowHeigth);
 
 		ReturnCode Update();
 
