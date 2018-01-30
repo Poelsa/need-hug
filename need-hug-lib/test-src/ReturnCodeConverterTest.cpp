@@ -1,4 +1,4 @@
-#include <ReturnCodeConverterTest.hpp>
+#include "ReturnCodeConverterTest.hpp"
 
 TEST_F(ReturnCodeConverterTest, simpleTest)
 {
@@ -19,7 +19,6 @@ TEST_F(ReturnCodeConverterTest, convert_codeStopEnd)
 {
 	ASSERT_STREQ("Stop_End", m_returnCodeConverter->Convert(ReturnCode::Stop_End).info.c_str());
 }
-
 
 TEST_F(ReturnCodeConverterTest, convert_codeStopRestart)
 {

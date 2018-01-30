@@ -6,7 +6,12 @@ option(SFML_USE_STATIC_STD_LIBS OFF)
 
 if(WIN32)
 	set(SFML_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ext/SFML/include" CACHE PATH "" FORCE)
-	set(SFML_OUTPUT_FOLDER ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Debug CACHE PATH "" FORCE)
-	set(SFML_LIBRARIES ${SFML_OUTPUT_FOLDER}/sfml-graphics-d.lib ${SFML_OUTPUT_FOLDER}/sfml-system-d.lib ${SFML_OUTPUT_FOLDER}/sfml-window-d.lib CACHE PATH "" FORCE)
+	# set(SFML_LIBRARIES sfml-graphics.lib sfml-system.lib sfml-window.lib CACHE PATH "" FORCE) # TODO meraz
+	
 	add_subdirectory(SFML)
+	add_subdirectory(googletest)
+
+else()
+	add_subdirectory(googletest)
+	find_package(SFML REQUIRED COMPONENTS graphics window system)
 endif(WIN32)

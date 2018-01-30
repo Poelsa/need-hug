@@ -1,1 +1,1 @@
-#include <configuration/Inputconfiguration.hpp>
+#include <configuration/InputConfiguration.hpp>

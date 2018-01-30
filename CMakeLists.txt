@@ -1,21 +1,21 @@
 cmake_minimum_required(VERSION 3.7)
 
+project(need-hug CXX)
+
+## TODO meraz
 option(NH_BUILD_TEST "Check this if you want to build test project." OFF)
 
-## Test libs
-if (NH_BUILD_TEST)
-	# Include HuntersGate file
-	include("CMake/HunterGate.cmake")
-	
-	# Hunter settings
-	HunterGate(
-	    URL "https://github.com/ruslo/hunter/archive/v0.19.97.tar.gz"
-	    SHA1 "d4fc45214ccb23a077b04ba8b50f2e8214b3a3ad"
-	)
-endif (NH_BUILD_TEST)
+## TODO meraz
+set(CMAKE_FIND_LIBRARY_SUFFIXES ".a;.so;.lib;.dll")
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+set(CMAKE_SHARED_LIBRARY_PREFIX "")
+
+## Test settings
+if(NH_BUILD_TEST)
+	set(NH_TEST_SUFFIX _test) # Set test module naming prefix
+endif(NH_BUILD_TEST)
 
 ## Base project settings
-project(need-hug)
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 ## Define output folder
@@ -26,18 +26,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_FOLDER}/bin)
 
 ## Include CMake helpers
 # Source group helper
-if (WIN32)
+if(WIN32)
 	include("CMake/create_source_group.cmake")
-endif (WIN32)
+endif(WIN32)
 set(MZ_PREFIX NH_)
 include("CMake/mz_project_wrapper.cmake")
 
 ## Find external cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 
-
 ## Add root as a valid include path for all projects
-include_directories(${REPOSITORY_ROOT})
+include_directories(${REPOSITORY_ROOT}) # TODO meraz, maybe not keep this.
 
 ## Set global shared compiler options
 # TODO Dont put options on global flags
@@ -48,29 +47,12 @@ else()
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE} -g -Wall -O2 -std=gnu++14 -pthread -lsfml-system")
 endif()
 
-set(CMAKE_STATIC_LIBRARY_PREFIX "")
-set(CMAKE_SHARED_LIBRARY_PREFIX "")
-
-## Add folders
+## Add 3pps
 add_subdirectory(ext)
-if(UNIX)
-	find_package(SFML REQUIRED COMPONENTS graphics window system)
-endif(UNIX)
 
+## TODO meraz
+# enable_testing()
 
+## TODO meraz
 add_subdirectory(need-hug-lib)
 add_subdirectory(need-hug)
-
-
-## Test settings
-if (NH_BUILD_TEST)
-
-	# Set test module naming prefix
-	set(TEST_SUFFIX _test)
-
-	# Find third party libraries using hunter
-	hunter_add_package(GTest)
-	find_package(GTest CONFIG REQUIRED)
-
-	add_subdirectory(need-hug-lib-test)
-endif (NH_BUILD_TEST)
