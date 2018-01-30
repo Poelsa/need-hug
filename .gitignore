@@ -42,3 +42,6 @@ logs
 
 # Ignore format cache
 .formatCache
+
+# Ignore project specific nhconfig
+.nhconfig
