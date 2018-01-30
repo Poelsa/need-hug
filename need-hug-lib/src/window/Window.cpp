@@ -1,24 +1,15 @@
 #include <window/Window.hpp>
-#include <math.h>
+
 #include <context/NeedHugContext.hpp>
 #include <context/TimeHandler.hpp>
 
 namespace NeedHug
 {
-	Window::Window()
-	{
-
-	}
-
-	Window::~Window()
-	{
-
-	}
+	Window::~Window() = default;
 
 	void Window::SetupWindow(const std::uint32_t windowWidth, const std::uint32_t windowHeigth)
 	{
 		window = std::make_unique<sf::RenderWindow>(sf::VideoMode(windowWidth, windowHeigth), "SFML works!");
-
 	}
 
 	ReturnCode Window::Update()
