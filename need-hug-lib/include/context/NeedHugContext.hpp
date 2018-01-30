@@ -1,7 +1,7 @@
-#ifndef NEEDHUGCONTEXT_HPP
-#define NEEDHUGCONTEXT_HPP
+#ifndef NEEDHUG_NEEDHUGCONTEXT_HPP
+#define NEEDHUG_NEEDHUGCONTEXT_HPP
 
-#include <memory>
+#include <memory> // std::shred_ptr
 
 namespace NeedHug
 {

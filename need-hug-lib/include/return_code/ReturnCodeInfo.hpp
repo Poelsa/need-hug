@@ -1,5 +1,5 @@
-#ifndef RETURNCODEINFO_HPP
-#define RETURNCODEINFO_HPP
+#ifndef NEEDHUG_RETURNCODEINFO_HPP
+#define NEEDHUG_RETURNCODEINFO_HPP
 
 #include <string>
 #include <utility>

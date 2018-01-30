@@ -1,5 +1,5 @@
-#ifndef NEEDHUGGAME_HPP
-#define NEEDHUGGAME_HPP
+#ifndef NEEDHUG_NEEDHUGGAME_HPP
+#define NEEDHUG_NEEDHUGGAME_HPP
 
 #include <thread>
 
@@ -9,16 +9,16 @@ namespace NeedHug
 {
 	class NeedHugGame
 	{
-public:
-	NeedHugGame();
-	virtual ~NeedHugGame();
+	public:
+		NeedHugGame();
+		virtual ~NeedHugGame();
 
-	ReturnCode Start();
-private:
-	void GameLogicLoop();
+		ReturnCode Start();
+	private:
+		void GameLogicLoop();
 
-	ReturnCode gameStatus;
-	std::thread logicThread;
+		ReturnCode gameStatus;
+		std::thread logicThread;
 	};
 }
 

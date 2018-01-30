@@ -1,5 +1,5 @@
-#ifndef RETURNCODECONVERTER_HPP
-#define RETURNCODECONVERTER_HPP
+#ifndef NEEDHUG_RETURNCODECONVERTER_HPP
+#define NEEDHUG_RETURNCODECONVERTER_HPP
 
 #include <need-hug-lib/include/return_code/ReturnCode.hpp>
 #include <need-hug-lib/include/return_code/ReturnCodeInfo.hpp>
