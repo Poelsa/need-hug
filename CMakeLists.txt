@@ -54,7 +54,7 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 ## Add folders
 add_subdirectory(ext)
 if(UNIX)
-	find_package(SFML COMPONENTS graphics window system)
+	find_package(SFML REQUIRED COMPONENTS graphics window system)
 endif(UNIX)
 
 
