@@ -1,4 +1,6 @@
 #include <input/button/SFMLButton.hpp>
+#include <input/ConstraintSolver.hpp>
+
 #include <stdexcept>
 
 namespace NeedHug
@@ -21,8 +23,7 @@ namespace NeedHug
 	{
 		wasPressed = isPressed;
 		isPressed = sf::Keyboard::isKeyPressed(sfKey);
-		return false; // TODO
-		// return ConstraintSolver(isPressed, wasPressed);
+        return ResolveConstraint(isPressed, wasPressed, definition.constraint);
 	}
 
 	bool SFMLButton::DoStuff()

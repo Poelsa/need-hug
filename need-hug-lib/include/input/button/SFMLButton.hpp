@@ -3,13 +3,14 @@
 
 #include <input/button/Button.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <input/button/Constraint.hpp>
 
 namespace NeedHug
 {
     struct ButtonActionDefinition
     {
         std::string key;
-        std::string constraint;
+        Constraint constraint;
         std::function<void(void)> dispatchAction;
     };
 
