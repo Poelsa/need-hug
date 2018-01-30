@@ -12,6 +12,7 @@ namespace NeedHug
         std::string constraint;
         std::function<void(void)> dispatchAction;
     };
+
     class SFMLButton : public Button
     {
     public:
@@ -22,7 +23,7 @@ namespace NeedHug
         SFMLButton(const SFMLButton& button) = delete;
 
         bool IsValid() override;
-        void DoStuff() override;
+        bool DoStuff() override;
     private:
         const ButtonActionDefinition definition;
         const sf::Keyboard::Key sfKey;
