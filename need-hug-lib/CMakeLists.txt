@@ -41,3 +41,10 @@ if(NH_BUILD_TEST)
 	mz_add_executable_test("${MODULE_NAME_TEST}" "${CMAKE_CURRENT_SOURCE_DIR}" "${COMPILE_OPTIONS}" "${INTERNAL_LIBRARIES}" "${EXTERNAL_LIBRARIES}" "${EXTERNAL_INCLUDE_DIRECTORIES}")
 
 endif(NH_BUILD_TEST)
+
+#include json lib
+add_library(json INTERFACE)
+target_include_directories(json INTERFACE ${REPOSITORY_ROOT}/ext/json/)
+target_sources(json INTERFACE ${REPOSITORY_ROOT}/ext/json/json.hpp)
+target_link_libraries(${MODULE_NAME} json)
+target_link_libraries(${MODULE_NAME_TEST} json)
