@@ -2,20 +2,18 @@
 
 namespace NeedHug
 {
-	SystemManager::SystemManager()
-	{
-	}
+	SystemManager::SystemManager() = default;
 
+	SystemManager::~SystemManager() = default;
 
-	SystemManager::~SystemManager()
-	{
-	}
 	void SystemManager::Update()
 	{
 	}
+
 	void SystemManager::Initialize()
 	{
 	}
+
 	void SystemManager::Teardown()
 	{
 	}

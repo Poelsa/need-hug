@@ -2,11 +2,7 @@
 
 namespace NeedHug
 {
-    Transform::Transform() 
-    {
-    }
+	Transform::Transform() = default;
 
-    Transform::~Transform() 
-    {
-    }
+	Transform::~Transform() = default;
 }

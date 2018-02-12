@@ -2,13 +2,7 @@
 
 namespace NeedHug
 {
-	Entity::Entity()
-	{
+	Entity::Entity() = default;
 
-	}
-
-	Entity::~Entity()
-	{
-
-	}
+	Entity::~Entity() = default;
 }

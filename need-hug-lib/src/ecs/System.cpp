@@ -1,16 +1,11 @@
 #include <ecs/System.hpp>
 
-
 namespace NeedHug
 {
-	System::System()
-	{
-	}
+	System::System() = default;
 
+	System::~System() = default;
 
-	System::~System()
-	{
-	}
 	void System::Update()
 	{
 	}
