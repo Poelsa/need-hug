@@ -1,4 +1,17 @@
-#include <context/TimeHandlerTest.hpp>
+#include <context/TimeHandler.hpp>
+#include <gtest/gtest.h>
+
+class TimeHandlerTest : public testing::Test
+{
+public:
+	TimeHandlerTest() {}
+	virtual ~TimeHandlerTest() {}
+
+	NeedHug::TimeHandler* timeHandler;
+
+	void SetUp() override { timeHandler = new NeedHug::TimeHandler(true); }
+	void TearDown() override { delete timeHandler; }
+};
 
 TEST_F(TimeHandlerTest, GetElapsedTime)
 {
