@@ -1,5 +1,5 @@
-#ifndef SYSTEMMANAGER_HPP
-#define SYSTEMMANAGER_HPP
+#ifndef NEEDHUG_SYSTEMMANAGER_HPP
+#define NEEDHUG_SYSTEMMANAGER_HPP
 
 #include "vector"
 #include <ecs/System.hpp>

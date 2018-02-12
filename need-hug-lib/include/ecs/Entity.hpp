@@ -1,5 +1,5 @@
-#ifndef ENTITY_HPP
-#define ENTITY_HPP
+#ifndef NEEDHUG_ENTITY_HPP
+#define NEEDHUG_ENTITY_HPP
 
 #include <need-hug-lib/include/components/Transform.hpp>
 

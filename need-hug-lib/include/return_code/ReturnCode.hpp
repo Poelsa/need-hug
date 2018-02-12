@@ -1,5 +1,5 @@
-#ifndef RETURNCODE_HPP
-#define RETURNCODE_HPP
+#ifndef NEEDHUG_RETURNCODE_HPP
+#define NEEDHUG_RETURNCODE_HPP
 
 #include <cstdint>
 

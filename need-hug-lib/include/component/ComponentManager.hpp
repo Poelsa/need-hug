@@ -1,5 +1,5 @@
-#ifndef COMPONENTMANAGER_HPP
-#define COMPONENTMANAGER_HPP
+#ifndef NEEDHUG_COMPONENTMANAGER_HPP
+#define NEEDHUG_COMPONENTMANAGER_HPP
 
 #include <assert.h>
 #include <map>

@@ -1,5 +1,5 @@
-#ifndef COMPONENT_HPP
-#define COMPONENT_HPP
+#ifndef NEEDHUG_COMPONENT_HPP
+#define NEEDHUG_COMPONENT_HPP
 
 #include <need-hug-lib/include/components/BaseComponent.hpp>
 

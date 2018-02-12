@@ -1,5 +1,5 @@
-#ifndef SYSTEM_HPP
-#define SYSTEM_HPP
+#ifndef NEEDHUG_SYSTEM_HPP
+#define NEEDHUG_SYSTEM_HPP
 
 namespace NeedHug
 {

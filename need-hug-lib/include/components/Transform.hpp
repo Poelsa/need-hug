@@ -1,5 +1,5 @@
-#ifndef TRANSFORM_HPP
-#define TRANSFORM_HPP
+#ifndef NEEDHUG_TRANSFORM_HPP
+#define NEEDHUG_TRANSFORM_HPP
 
 #include <need-hug-lib/include/components/Component.hpp>
 
