@@ -32,6 +32,7 @@ function(mz_add_executable EXECUTABLE_NAME PATH COMPILE_OPTIONS INTERNAL_DEPENDE
 	target_include_directories(${EXECUTABLE_NAME} PUBLIC "${INCLUDE_DIRECTORIES}")
 	target_link_libraries(${EXECUTABLE_NAME} ${LIBRARIES})
 	target_compile_options(${EXECUTABLE_NAME} PUBLIC "${COMPILE_OPTIONS}")
+	set_property(TARGET ${EXECUTABLE_NAME} PROPERTY CXX_STANDARD 14)
 endfunction(mz_add_executable)
 
 function(mz_add_executable_test EXECUTABLE_NAME PATH COMPILE_OPTIONS INTERNAL_DEPENDENCIES EXTERNAL_DEPENDENCIES EXTERNAL_INCLUDE_PATHS)
@@ -62,6 +63,7 @@ function(mz_add_executable_test EXECUTABLE_NAME PATH COMPILE_OPTIONS INTERNAL_DE
 	target_include_directories(${EXECUTABLE_NAME} PUBLIC "${INCLUDE_DIRECTORIES}")
 	target_link_libraries(${EXECUTABLE_NAME} ${LIBRARIES})
 	target_compile_options(${EXECUTABLE_NAME} PUBLIC "${COMPILE_OPTIONS}")
+	set_property(TARGET ${EXECUTABLE_NAME} PROPERTY CXX_STANDARD 14)
 endfunction(mz_add_executable_test)
 
 function(mz_add_library LIBRARY_NAME LIBRARY_TYPE PATH COMPILE_OPTIONS INTERNAL_DEPENDENCIES EXTERNAL_DEPENDENCIES EXTERNAL_INCLUDE_PATHS)
@@ -92,4 +94,5 @@ function(mz_add_library LIBRARY_NAME LIBRARY_TYPE PATH COMPILE_OPTIONS INTERNAL_
 	target_include_directories(${LIBRARY_NAME} PUBLIC "${INCLUDE_DIRECTORIES}")
 	target_link_libraries(${LIBRARY_NAME} ${LIBRARIES})
 	target_compile_options(${LIBRARY_NAME} PUBLIC "${COMPILE_OPTIONS}")
+	set_property(TARGET ${EXECUTABLE_NAME} PROPERTY CXX_STANDARD 14)
 endfunction(mz_add_library)

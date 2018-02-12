@@ -10,6 +10,8 @@ set(CMAKE_FIND_LIBRARY_SUFFIXES ".a;.so;.lib;.dll")
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
+set(CXX_STANDARD_REQUIRED ON)
+
 ## Test settings
 if(NH_BUILD_TEST)
 	set(NH_TEST_SUFFIX _test) # Set test module naming prefix
@@ -41,8 +43,8 @@ include_directories(${REPOSITORY_ROOT}) # TODO meraz, maybe not keep this.
 ## Set global shared compiler options
 # TODO Dont put options on global flags
 if(WIN32)
-	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -W4 -O2 -std=c++14")
-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W4 -_ITERATOR_DEBUG_LEVEL=2 -std=c++14")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -W4 -O2")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -W4 -_ITERATOR_DEBUG_LEVEL=2")
 else()
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE} -g -Wall -O2 -std=gnu++14 -pthread -lsfml-system")
 endif()
