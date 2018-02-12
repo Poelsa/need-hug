@@ -2,6 +2,8 @@
 #define NEEDHUG_INPUTMANAGER_HPP
 
 #include <vector>
+#include <memory>
+
 #include <input/button/Button.hpp>
 
 namespace NeedHug
@@ -12,8 +14,11 @@ namespace NeedHug
         InputManager() {};
         virtual ~InputManager() = default;
 
+        void AddButtons(std::vector<std::unique_ptr<Button>> Buttons);
+        void Update();
+
     private:
-        std::vector<Button*> buttons;
+        std::vector<std::unique_ptr<Button>> buttons;
 
     };
 }
