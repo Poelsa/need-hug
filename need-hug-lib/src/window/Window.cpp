@@ -3,6 +3,8 @@
 #include <context/NeedHugContext.hpp>
 #include <context/TimeHandler.hpp>
 
+#include <cmath>
+
 namespace NeedHug
 {
 	Window::~Window() = default;
@@ -28,7 +30,7 @@ namespace NeedHug
         window->clear();
 		sf::CircleShape shape(100.f);
 		shape.setFillColor(sf::Color::Green);
-		shape.setPosition(sin((NeedHugContext::GetContext().GetTimeHandler()->GetTotalTime()))*100.0f, 0.0f);
+		shape.setPosition(std::sin((NeedHugContext::GetContext().GetTimeHandler()->GetTotalTime()))*100.0f, 0.0f);
         window->draw(shape);
         window->display();
         return returnCode;
