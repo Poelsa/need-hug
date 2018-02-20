@@ -2,7 +2,7 @@
 
 namespace NeedHug
 {
-    void InputManager::AddButtons(std::vector<std::unique_ptr<Button>> Buttons)
+    void InputManager::SetButtons(std::vector<std::unique_ptr<Button>>& Buttons)
     {
         buttons = std::move(Buttons);
     }

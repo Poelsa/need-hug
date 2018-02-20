@@ -13,11 +13,10 @@ namespace NeedHug
 		ConfigurationManager(const ConfigurationManager& configurationManager) = delete;
 		ConfigurationManager(ConfigurationManager&& configurationManager) = delete;
 
-		bool getValue(const std::string& name, std::string& value);
-		bool getValue(const std::string& name, std::int32_t& value);
-		bool getValue(const std::string& name, float& value);
-		bool getValue(const std::string& name, bool& value);
-
+		bool GetValue(const std::string& name, std::string& value);
+		bool GetValue(const std::string& name, std::int32_t& value);
+		bool GetValue(const std::string& name, float& value);
+		bool GetValue(const std::string& name, bool& value);
 	};
 }
 

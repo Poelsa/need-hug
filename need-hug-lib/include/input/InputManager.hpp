@@ -14,7 +14,7 @@ namespace NeedHug
         InputManager() {};
         virtual ~InputManager() = default;
 
-        void AddButtons(std::vector<std::unique_ptr<Button>> Buttons);
+        void SetButtons(std::vector<std::unique_ptr<Button>>& Buttons);
         void Update();
 
     private:
