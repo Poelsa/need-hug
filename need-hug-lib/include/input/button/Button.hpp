@@ -2,16 +2,19 @@
 #define NEEDHUG_BUTTON_HPP
 
 #include <functional>
-#include <string>
+#include <tuple>
 
 #include <input/button/Constraint.hpp>
 
 namespace NeedHug
 {
+    using ActiveButtonCallback = std::function<bool(void)>;
+    using ActionCallback = std::function<void(void)>;
+    using ButtonActionDefinition = std::tuple<ActiveButtonCallback, ActionCallback, Constraint>;
     class Button
     {
     public:
-        Button(std::function<bool(void)> ImplSpecCallback, std::function<void(void)> Callback, Constraint Constraint);
+        explicit Button(ButtonActionDefinition buttonActionDefinition);
         virtual ~Button() {};
 
         Button(Button&& button) = delete;
@@ -23,9 +26,9 @@ namespace NeedHug
         bool wasPressed;
         bool isPressed;
 
-        std::function<bool(void)> implSpecCallback;
-        std::function<void(void)> callback;
-        Constraint constraint;
+        const ActiveButtonCallback isActiveButtonCallback;
+        const ActionCallback callback;
+        const Constraint constraint;
     };
 }
 #endif

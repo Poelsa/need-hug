@@ -3,14 +3,14 @@
 
 namespace NeedHug
 {
-    Button::Button(std::function<bool(void)> ImplSpecCallback, std::function<void(void)> Callback, NeedHug::Constraint Constraint) :
-        implSpecCallback(ImplSpecCallback), callback(Callback), constraint(Constraint)
+    Button::Button(ButtonActionDefinition buttonActionDefinition) :
+        isActiveButtonCallback(std::get<ActiveButtonCallback>(buttonActionDefinition)), callback(std::get<ActionCallback>(buttonActionDefinition)), constraint(std::get<Constraint>(buttonActionDefinition))
     { }
 
     void Button::Update()
     {
         wasPressed = isPressed;
-        isPressed = implSpecCallback();
+        isPressed = isActiveButtonCallback();
         if (ResolveConstraint(isPressed, wasPressed, constraint))
         {
             callback();
