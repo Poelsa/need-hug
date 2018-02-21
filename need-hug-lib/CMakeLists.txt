@@ -44,7 +44,9 @@ endif(NH_BUILD_TEST)
 
 #include json lib
 add_library(json INTERFACE)
-target_include_directories(json INTERFACE ${REPOSITORY_ROOT}/ext/json/)
+target_include_directories(json INTERFACE
+	$<BUILD_INTERFACE:${REPOSITORY_ROOT}/ext/json/>
+	$<INSTALL_INTERFACE:ext/json>)
 target_sources(json INTERFACE ${REPOSITORY_ROOT}/ext/json/json.hpp)
 target_link_libraries(${MODULE_NAME} json)
 target_link_libraries(${MODULE_NAME_TEST} json)
