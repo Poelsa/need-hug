@@ -17,7 +17,6 @@ namespace NeedHug
 		bool getValue(const std::string& name, std::int32_t& value);
 		bool getValue(const std::string& name, float& value);
 		bool getValue(const std::string& name, bool& value);
-
 	};
 }
 

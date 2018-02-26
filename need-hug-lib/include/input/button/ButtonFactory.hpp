@@ -8,7 +8,6 @@
 
 namespace NeedHug
 {
-
     static std::vector<std::unique_ptr<Button>> GetSFMLButtons();
 }
 
