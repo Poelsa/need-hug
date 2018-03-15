@@ -9,6 +9,11 @@ namespace NeedHug
         KEY_DOWN,
         KEY_UP
     };
+
+    static Constraint IntToConstraint(int constraint)
+    {
+        //if -> const
+    }
 }
 
 #endif

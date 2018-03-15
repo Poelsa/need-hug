@@ -11,6 +11,4 @@ namespace NeedHug
         EnumToActionCallback(actionType, playerId);
         IntToContraintCallback(buttonConstraint);
     }
-
-    // string till activebuttoncallback
 }
