@@ -3,6 +3,7 @@
 
 #include <input/ActionType.hpp>
 #include <input/PlayerId.hpp>
+#include <input/button/Button.hpp>
 
 namespace NeedHug
 {
@@ -15,6 +16,10 @@ namespace NeedHug
 		InputConfiguration(InputConfiguration&& configurationManager) = delete;
 
         ButtonActionDefinition DefaultInputConfig(ActionType actionType, PlayerId playerId);
+
+    private:
+        ActiveButtonCallback StringToActiveButtonCallback(const std::string& buttonString);
+        ActionCallback EnumsToActionCallback(const ActionType actionType, const PlayerId playerId);
 	};
 }
 

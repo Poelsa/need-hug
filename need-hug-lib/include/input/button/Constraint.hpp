@@ -10,9 +10,19 @@ namespace NeedHug
         KEY_UP
     };
 
-    static Constraint IntToConstraint(int constraint)
+    static Constraint IntToConstraint(const int constraint)
     {
-        //if -> const
+        switch (constraint)
+        {
+        case 0:
+            return Constraint::HOLD;
+        case 1:
+            return Constraint::KEY_DOWN;
+        case 2:
+            return Constraint::KEY_UP;
+        default:
+            break;
+        }
     }
 }
 
