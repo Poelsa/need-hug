@@ -30,6 +30,7 @@ namespace NeedHug
 		window = std::make_shared<Window>();
 		componentManager = std::make_shared<ComponentManager>();
 		timeHandler = std::make_shared<TimeHandler>(true);
+        configurationManager = std::make_shared<ConfigurationManager>();
 	}
 
 	NeedHugContext::~NeedHugContext()
