@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <event/EventManager.hpp>
+#include <memory>
 
 using NeedHug::EventManager;
 
@@ -49,7 +50,7 @@ TEST(EventManagerTest, SubscribeAndNotify2)
 {
     EventManager<std::shared_ptr<float>>::Setup();
     auto& eventMangerFloat = EventManager<std::shared_ptr<float>>::GetInstance();
-    eventMangerFloat.Subscribe(std::bind(funcSharedPointer1, std::placeholders::_1));
+	eventMangerFloat.Subscribe(std::bind(funcSharedPointer1, std::placeholders::_1));
 
     eventMangerFloat.QueueEvent(std::make_shared<float>(1.0f));
 

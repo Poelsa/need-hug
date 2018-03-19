@@ -2,11 +2,10 @@
 #define NEEDHUG_EVENTMANAGER_HPP
 
 #include <functional> // std::function, std::reference_wrapper, std::bind
-#include <memory> // std::shared_ptr
 #include <type_traits> // std::decay
 #include <vector> // std::vector
 #include <cassert> // std::assert
-#include <iostream> // std::cout, std::cin, std::endl
+#include <iostream> // std::cout, std::cin, std::endl, TODO
 
 using std::cin; // TODO
 using std::cout;
@@ -20,7 +19,7 @@ namespace NeedHug
         //using Event = std::reference_wrapper<const std::decay_t<T>>;
         using Event = T;
         using Callback = std::function<bool(const Event&)>;
-        using Handle = void;
+        using CallbackHandle = void;
 
     public:
         static void Setup()
@@ -43,25 +42,27 @@ namespace NeedHug
 
         EventManager(EventManager& eventManager) = delete;
         EventManager(EventManager&& eventManager) = delete;
-
-        Handle Subscribe(Callback callBack)
+		
+		CallbackHandle Subscribe(Callback&& callBack) // TODO, confirm that both are used.
         {
-            cout << "A" << endl;
+			cout << "A" << endl;
             subscribers.push_back(callBack);
         }
 
-    /*
-        template<typename CallableT>
-        Handle Subscribe(CallableT&& callable)
-        {
-            cout << "B" << endl;
-            subscribers.push_back(std::bind(callable, std::placeholders::_1));
-        }
-        */
+		CallbackHandle Subscribe(Callback& callBack) // TODO, confirm that both are used.
+		{
+			cout << "Q" << endl;
+			subscribers.push_back(callBack);
+		}
 
+		/*
+			This function must not carry the same signature as the one which only takes one parameter, thus the second argument.
+			And the second argument will always be required if the function is to be binded within here.
+		*/
         template<typename CallableT, typename SecondArg, typename ... ArgTs>
-        Handle Subscribe(CallableT&& callable, SecondArg&& secondArg, ArgTs ... args)
+		CallbackHandle Subscribe(CallableT&& callable, SecondArg&& secondArg, ArgTs&& ... args)
         {
+			static_assert(std::is_bind_expression<CallableT>::value == false, "Parameter must not already by bound with std::bind.");
             cout << "C" << endl;
             subscribers.push_back(Callback(std::bind(callable, secondArg, std::forward<ArgTs>(args)...)));
         }
@@ -73,7 +74,7 @@ namespace NeedHug
             cout << "Value: " << event << endl;
             cout << endl;
             // Required to abuse the universal reference effect for U&&
-            static_assert(std::is_same<std::decay_t<U>,std::decay_t<T>>::value, "U must be the same as T");
+            static_assert(std::is_same<std::decay_t<U>, std::decay_t<T>>::value, "U must be the same as T");
             events.push_back(Event(event));
         }
 
