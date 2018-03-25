@@ -1,8 +1,35 @@
+//#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <event/EventManager.hpp>
 #include <memory>
 
 using NeedHug::EventManager;
+
+/*
+class MockClass
+{
+public:
+	MOCK_METHOD0(func, void());
+	MOCK_METHOD1(func, void(int));
+	MOCK_METHOD2(func, void(int, int));
+};
+
+
+struct EventManagerFixture : public testing::Test
+{
+	MockClass mockClass;
+
+	EventManagerFixture()
+	{
+
+	}
+
+	~EventManagerFixture()
+	{
+
+	}
+};
+*/
 
 bool func1(const float& param)
 {
@@ -60,3 +87,11 @@ TEST(EventManagerTest, SubscribeAndNotify2)
     eventMangerFloat.ProcessEvents();
     EventManager<std::shared_ptr<float>>::Teardown();
 }
+
+/*
+TEST_F(EventManagerFixture, basic)
+{
+	EXPECT_CALL(mockClass, func()).Times(testing::AtLeast(1));
+
+}
+*/
