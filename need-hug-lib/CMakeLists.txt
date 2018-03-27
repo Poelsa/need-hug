@@ -31,7 +31,7 @@ if(NH_BUILD_TEST)
 
 	# Libraries
 	set(INTERNAL_LIBRARIES ${MODULE_NAME})
-	set(EXTERNAL_LIBRARIES gtest_main)
+	set(EXTERNAL_LIBRARIES gmock_main)
 
 	# Set compiler options for target
 	set(DEBUG_OPTIONS "")

@@ -1,19 +1,24 @@
-//#include <gmock/gmock.h>
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <event/EventManager.hpp>
 #include <memory>
 
 using NeedHug::EventManager;
 
-/*
-class MockClass
+class MockClassAA
 {
-public:
-	MOCK_METHOD0(func, void());
-	MOCK_METHOD1(func, void(int));
-	MOCK_METHOD2(func, void(int, int));
+	virtual void func0() = 0;
+	virtual void func1(int) = 0;
+	virtual void func2(int, int) = 0;
 };
 
+class MockClass 
+{
+public:
+	MOCK_METHOD0(func0, void());
+	MOCK_METHOD1(func1, void(int));
+	MOCK_METHOD2(func2, void(int, int));
+};
 
 struct EventManagerFixture : public testing::Test
 {
@@ -29,7 +34,6 @@ struct EventManagerFixture : public testing::Test
 
 	}
 };
-*/
 
 bool func1(const float& param)
 {
@@ -62,36 +66,34 @@ bool funcSharedPointer1(const std::shared_ptr<float>& param)
 
 TEST(EventManagerTest, SubscribeAndNotify)
 {
-    EventManager<float>::Setup();
-    auto& eventMangerFloat = EventManager<float>::GetInstance();
-    eventMangerFloat.Subscribe(std::bind(func1, std::placeholders::_1));
-    eventMangerFloat.Subscribe(func1, std::placeholders::_1);
-    eventMangerFloat.Subscribe(func1);
+	EventManager<float>::Setup();
+	auto& eventMangerFloat = EventManager<float>::GetInstance();
+	eventMangerFloat.Subscribe(std::bind(func1, std::placeholders::_1));
+	eventMangerFloat.Subscribe(func1, std::placeholders::_1);
+	eventMangerFloat.Subscribe(func1);
 
-    eventMangerFloat.QueueEvent(34.7f);
-    eventMangerFloat.ProcessEvents();
-    EventManager<float>::Teardown();
+	eventMangerFloat.QueueEvent(34.7f);
+	eventMangerFloat.ProcessEvents();
+	EventManager<float>::Teardown();
 }
 
 TEST(EventManagerTest, SubscribeAndNotify2)
 {
-    EventManager<std::shared_ptr<float>>::Setup();
-    auto& eventMangerFloat = EventManager<std::shared_ptr<float>>::GetInstance();
+	EventManager<std::shared_ptr<float>>::Setup();
+	auto& eventMangerFloat = EventManager<std::shared_ptr<float>>::GetInstance();
 	eventMangerFloat.Subscribe(std::bind(funcSharedPointer1, std::placeholders::_1));
 
-    eventMangerFloat.QueueEvent(std::make_shared<float>(1.0f));
+	eventMangerFloat.QueueEvent(std::make_shared<float>(1.0f));
 
-    auto payload = std::make_shared<float>(2.0f);
-    eventMangerFloat.QueueEvent(payload);
+	auto payload = std::make_shared<float>(2.0f);
+	eventMangerFloat.QueueEvent(payload);
 
-    eventMangerFloat.ProcessEvents();
-    EventManager<std::shared_ptr<float>>::Teardown();
+	eventMangerFloat.ProcessEvents();
+	EventManager<std::shared_ptr<float>>::Teardown();
 }
 
-/*
 TEST_F(EventManagerFixture, basic)
 {
-	EXPECT_CALL(mockClass, func()).Times(testing::AtLeast(1));
-
+	using ::testing::AtLeast;
+	EXPECT_CALL(mockClass, func0()).Times(testing::AtLeast(1));
 }
-*/
