@@ -15,11 +15,11 @@ namespace NeedHug
 		InputConfiguration(const InputConfiguration& configurationManager) = delete;
 		InputConfiguration(InputConfiguration&& configurationManager) = delete;
 
-        ButtonActionDefinition DefaultInputConfig(ActionType actionType, PlayerId playerId);
+        static ButtonActionDefinition DefaultInputConfig(ActionType actionType, PlayerId playerId);
 
     private:
-        ActiveButtonCallback StringToActiveButtonCallback(const std::string& buttonString);
-        ActionCallback EnumsToActionCallback(const ActionType actionType, const PlayerId playerId);
+        static ActiveButtonCallback StringToActiveButtonCallback(const std::string& buttonString);
+        static ActionCallback EnumsToActionCallback(const ActionType actionType, const PlayerId playerId);
 	};
 }
 

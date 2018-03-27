@@ -12,12 +12,12 @@ namespace NeedHug
     {
         auto& configMan = NeedHugContext::GetContext().GetConfigurationManager();
         std::string buttonString;
-        if (!configMan.GetValue(std::string(ToString(actionType) + "_" + ToString(playerId) + "_key"), buttonString))
+        if (!configMan->GetValue(std::string(ToString(actionType) + "_" + ToString(playerId) + "_key"), buttonString))
         {
             return ButtonActionDefinition();
         }
         int32_t buttonConstraint;
-        if (!configMan.GetValue(std::string(ToString(actionType) + "_" + ToString(playerId) + "_constraint"), buttonConstraint)
+        if (!configMan->GetValue(std::string(ToString(actionType) + "_" + ToString(playerId) + "_constraint"), buttonConstraint))
         {
             return ButtonActionDefinition();
         }
@@ -35,7 +35,7 @@ namespace NeedHug
 
     ActionCallback InputConfiguration::EnumsToActionCallback(const ActionType actionType, const PlayerId playerId)
     {
-        auto actionCallback = giveEvent(actionType, playerId);
-        return[actionCallback]()->{ /*event*/ };
+        //auto actionCallback = nullptr;// giveEvent(actionType, playerId);
+        return[/*actionCallback*/]()->void { return; };
     }
 }

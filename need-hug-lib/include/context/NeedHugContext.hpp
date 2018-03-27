@@ -34,7 +34,7 @@ namespace NeedHug
 		std::shared_ptr<TimeHandler> GetTimeHandler() const { return timeHandler; }
 
         // TODO docs
-        ConfigurationManager& GetConfigurationManager() const { return *configurationManager; }
+        std::shared_ptr<ConfigurationManager> GetConfigurationManager() const { return configurationManager; }
 
 	private:
 		NeedHugContext();
